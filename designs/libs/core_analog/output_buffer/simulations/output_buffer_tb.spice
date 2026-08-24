@@ -1,0 +1,82 @@
+** sch_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/output_buffer/output_buffer_tb.sch
+**.subckt output_buffer_tb VO
+*.iopin VO
+V1 VIN_BUF 0 DC 1.65 AC 1 0 PULSE(1.64 1.66 1m 1u 1u 9m 20m)
+V2 AVDD 0 DC 3.3
+CLOAD VO 0 100f
+I0 net1 0 10u
+x1 AVDD net1 VO VIN_BUF VO 0 output_buffer
+RLOAD net2 0 100M
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt
+.include /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cap_mfringe.lib
+
+
+
+.param VCM=1.65
+.param CLOAD_VALUE=100f
+.param RLOAD_VALUE=100Meg
+
+.control
+set noaskquit
+save all
+
+* Operating point at the nominal output common-mode voltage.
+op
+write output_buffer_tb_op.raw
+let vout_op = v(vo)
+print vout_op
+
+* Closed-loop small-signal response of the voltage follower.
+ac dec 100 1 10Meg
+let acl = v(vo)/v(vin_buf)
+let acl_db = db(acl)
+let acl_phase = 180/pi*cph(acl)
+write output_buffer_tb_ac.raw
+
+* Small-signal tracking and settling around VCM.
+tran 1u 20m
+let tracking_error = v(vo)-v(vin_buf)
+let abs_tracking_error = abs(tracking_error)
+meas tran t_band_entry when abs_tracking_error=0.2m fall=1 from=1m to=10m
+meas tran vo_final find v(vo) at=19m
+meas tran error_final find v(tracking_error) at=19m
+meas tran error_peak max abs_tracking_error from=1m to=10m
+meas tran vo_peak max v(vo) from=1m to=10m
+meas tran vo_min min v(vo) from=1m to=10m
+write output_buffer_tb_tran.raw
+
+* DC transfer of the closed-loop follower.
+dc V1 0.2 3.1 0.01
+let dc_error = v(vo)-v(vin_buf)
+let abs_dc_error = abs(dc_error)
+write output_buffer_tb_dc.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  output_buffer.sym # of pins=6
+** sym_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/output_buffer/output_buffer.sym
+** sch_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/output_buffer/output_buffer.sch
+.subckt output_buffer AVDD IBIAS VOUT VIN_BUF+ VIN_BUF- AVSS
+*.iopin AVDD
+*.iopin AVSS
+*.iopin VOUT
+*.iopin IBIAS
+*.iopin VIN_BUF-
+*.iopin VIN_BUF+
+XM1 net1 VIN_BUF- net3 AVDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM2 net2 VIN_BUF+ net3 AVDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM3 net3 IBIAS AVDD AVDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM4 net1 net1 AVSS AVSS sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM5 net2 net1 AVSS AVSS sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM6 VOUT IBIAS AVDD AVDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM7 VOUT net2 AVSS AVSS sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM8 IBIAS IBIAS AVDD AVDD sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XC1 VOUT net2 cap_mfringe w=2.0u l=2.0u mmin=1 mmax=4
+.ends
+
+.end

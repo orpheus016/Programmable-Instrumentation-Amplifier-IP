@@ -1,0 +1,61 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chipalooza/programmable-instrumentation-amplifier-ip/designs/libs/core_analog/output_buffer/output_buffer_tb.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Note: v1: dc value used for op instead of transient time=0 value.
+
+No. of Data Rows : 1
+binary raw file "output_buffer_tb_op.raw"
+vout_op = 1.664830e+00
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Note: v1: dc value used for op instead of transient time=0 value.
+
+No. of Data Rows : 701
+binary raw file "output_buffer_tb_ac.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Note: v1: dc value used for op instead of transient time=0 value.
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vin_buf                                   1.64
+avdd                                       3.3
+vo                                     1.65482
+net1                                   1.89666
+x1.net1                               0.885637
+x1.net3                                2.88923
+x1.net2                                1.03627
+net2                                         0
+v2#branch                         -2.81392e-05
+v1#branch                          1.38778e-17
+
+ Reference value :  1.92450e-02
+No. of Data Rows : 20020
+
+Error: measure  t_band_entry  when(WHEN) : out of interval
+ meas tran t_band_entry when abs_tracking_error=0.2m fall=1 from=1m to=10m failed!
+
+vo_final            =  1.65482e+00
+error_final         =  1.48247e-02
+error_peak          =  1.48412e-02 at=  1.36605e-03
+vo_peak             =  1.67484e+00 at=  1.36605e-03
+vo_min              =  1.65482e+00 at=  1.00000e-03
+binary raw file "output_buffer_tb_tran.raw"
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Note: v1: dc value used for op instead of transient time=0 value.
+ Reference value :  2.00000e-01
+No. of Data Rows : 291
+binary raw file "output_buffer_tb_dc.raw"
