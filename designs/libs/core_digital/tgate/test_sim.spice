@@ -1,0 +1,24 @@
+** Test T-Gate Ron
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice
+.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+.subckt tgate IN AVSS AVDD EN ENB OUT
+XM1 IN EN OUT AVSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1 mm_ok=1
+XM2 OUT ENB IN AVDD sg13_lv_pmos w=2.5u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+x1 IN 0 VDD_A VDD_D 0 OUT tgate
+ITEST IN OUT 10u
+VDD1 VDD_A 0 DC 1.2
+VDD2 VDD_D 0 DC 1.2
+VCM IN 0 DC 0
+
+.dc VCM 0 1.2 0.01
+
+.control
+  run
+  let ron = (v(IN) - v(OUT)) / 10u
+  print ron[0] ron[60] ron[120]
+  write tb_tgate_dc.raw
+.endc
+.end

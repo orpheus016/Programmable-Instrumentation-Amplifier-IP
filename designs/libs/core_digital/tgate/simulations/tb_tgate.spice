@@ -1,0 +1,45 @@
+** sch_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tb_tgate.sch
+**.subckt tb_tgate
+x1 IN 0 net1 net2 0 OUT tgate
+ITEST IN OUT 10u
+VDD_A net1 0 1.2
+VCM IN 0 0
+VDD_D net2 0 1.2
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+
+
+.control
+  run
+
+  dc VCM 0 1.2 0.01
+
+  * Calculate Switch On-Resistance:
+  let ron = (v(OUT) - v(IN)) / 10u
+
+  plot ron title 'T-Gate On-Resistance vs Input Voltage' xlabel 'V_in (V)' ylabel 'R_on (Ohms)'
+
+  write tb_tgate_dc.raw
+.endc
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  tgate.sym # of pins=6
+** sym_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym
+** sch_path: /foss/designs/Chipalooza/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sch
+.subckt tgate IN AVSS AVDD EN ENB OUT
+*.iopin AVDD
+*.iopin AVSS
+*.iopin IN
+*.iopin OUT
+*.ipin EN
+*.ipin ENB
+XM1 IN EN OUT AVSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1 mm_ok=1
+XM2 OUT ENB IN AVDD sg13_lv_pmos w=2.5u l=0.13u ng=1 m=1 mm_ok=1
+.ends
+
+.end
