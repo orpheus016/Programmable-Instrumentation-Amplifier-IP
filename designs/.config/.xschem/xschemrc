@@ -6,3 +6,6 @@ set XSCHEM_LIBRARY_PATH ${XSCHEM_LIBRARY_PATH}:$env(DESIGNS)
 
 set netlist_dir "/foss/designs/simulations"
 
+
+# Add standard cells library path
+append XSCHEM_LIBRARY_PATH :\(PDK_ROOT)/\(PDK)/libs.tech/xschem/sg13cmos5l_stdcells
