@@ -1,0 +1,61 @@
+******
+** ngspice-46 : Circuit level simulation program
+** Compiled with KLU Direct Linear Solver
+** The U. C. Berkeley CAD Group
+** Copyright 1985-1994, Regents of the University of California.
+** Copyright 2001-2025, The ngspice team.
+** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html
+** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html
+** Creation Date: Mon Jun 22 10:09:10 UTC 2026
+******
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /foss/designs/chipalooza/programmable-instrumentation-amplifier-ip/designs/libs/core_digital/fine_driver_6b/tb_fine_driver_6b.sch
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+x1.x1.net1                                 1.2
+vd4                                          0
+vs4                                6.03212e-08
+dvdd                                       1.2
+vs4b                                       1.2
+x1.x3.net1                                 1.2
+vd5                                          0
+vs5                                6.03212e-08
+vs5b                                       1.2
+x1.x5.net1                                 1.2
+vd6                                          0
+vs6                                6.03212e-08
+vs6b                                       1.2
+x1.x7.net1                                 1.2
+vd7                                          0
+vs7                                6.03212e-08
+vs7b                                       1.2
+x1.x9.net1                                 1.2
+vd8                                          0
+vs8                                6.03212e-08
+vs8b                                       1.2
+x1.x11.net1                                1.2
+vd9                                          0
+vs9                                6.03212e-08
+vs9b                                       1.2
+v9#branch                          3.22509e-11
+v8#branch                          3.22509e-11
+v7#branch                          3.22509e-11
+v4#branch                          3.22509e-11
+v5#branch                          3.22509e-11
+v6#branch                          3.22509e-11
+vdd#branch                        -8.14787e-10
+
+ Reference value :  3.17110e-07
+No. of Data Rows : 3898
+binary raw file "tb_fine_driver_6b.raw"
