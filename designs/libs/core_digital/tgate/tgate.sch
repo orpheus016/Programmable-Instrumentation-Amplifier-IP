@@ -11,7 +11,7 @@ N 20 50 120 50 {lab=OUT}
 N 120 30 120 50 {lab=OUT}
 N -80 30 -80 50 {lab=OUT}
 N 120 -50 120 -30 {lab=IN}
-N 100 -0 120 0 {lab=#net1}
+N 100 -0 120 0 {lab=AVDD}
 N -80 0 -60 0 {lab=AVSS}
 N -140 -0 -120 -0 {lab=EN}
 N 160 0 180 0 {lab=ENB}
@@ -43,3 +43,4 @@ C {iopin.sym} 20 -70 0 1 {name=p4 lab=IN}
 C {iopin.sym} 20 70 0 0 {name=p5 lab=OUT}
 C {ipin.sym} -140 0 0 0 {name=p6 lab=EN}
 C {ipin.sym} 180 0 0 1 {name=p7 lab=ENB}
+C {title.sym} -200 130 0 0 {name=l1 author="Rafi Ananta Alden"}

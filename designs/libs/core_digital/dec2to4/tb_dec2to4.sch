@@ -81,3 +81,4 @@ C {lab_wire.sym} 230 0 0 1 {name=p4 sig_type=std_logic lab=Y1}
 C {lab_wire.sym} 170 20 0 1 {name=p5 sig_type=std_logic lab=Y2}
 C {lab_wire.sym} 110 40 0 1 {name=p6 sig_type=std_logic lab=Y3}
 C {dec2to4.sym} 0 -150 0 0 {name=x1}
+C {title.sym} -30 240 0 0 {name=l9 author="Rafi Ananta Alden"}

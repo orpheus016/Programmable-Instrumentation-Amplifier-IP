@@ -208,3 +208,4 @@ C {code_shown.sym} 390 -140 0 0 {name=NGSPICE only_toplevel=false value=".contro
 "
 
 }
+C {title.sym} 560 190 0 0 {name=l21 author="Rafi Ananta Alden"}

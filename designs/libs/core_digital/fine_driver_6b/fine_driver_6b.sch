@@ -85,3 +85,4 @@ C {lab_wire.sym} 260 70 0 0 {name=p35 sig_type=std_logic lab=D6}
 C {lab_wire.sym} 260 130 0 0 {name=p36 sig_type=std_logic lab=D7}
 C {lab_wire.sym} 260 190 0 0 {name=p37 sig_type=std_logic lab=D8}
 C {lab_wire.sym} 260 250 0 0 {name=p38 sig_type=std_logic lab=D9}
+C {title.sym} -240 320 0 0 {name=l1 author="Rafi Ananta Alden"}

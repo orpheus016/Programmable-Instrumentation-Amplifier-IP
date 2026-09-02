@@ -177,3 +177,4 @@ C {opin.sym} 540 260 0 0 {name=p26 lab=Y13}
 C {opin.sym} 800 260 0 0 {name=p27 lab=Y14}
 C {opin.sym} 1070 270 0 0 {name=p28 lab=Y15}
 C {lab_wire.sym} 70 170 2 0 {name=p36 sig_type=std_logic lab=VSS}
+C {title.sym} 10 500 0 0 {name=l1 author="Rafi Ananta Alden"}

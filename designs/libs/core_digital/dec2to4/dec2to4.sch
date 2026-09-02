@@ -43,3 +43,4 @@ C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 200 0 0 {name=x4 VDD=VDD VSS=VS
 C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 280 0 0 {name=x5 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
 C {iopin.sym} 260 20 0 0 {name=p7 lab=VDD}
 C {iopin.sym} 260 50 0 0 {name=p8 lab=VSS}
+C {title.sym} -420 350 0 0 {name=l1 author="Rafi Ananta Alden"}
