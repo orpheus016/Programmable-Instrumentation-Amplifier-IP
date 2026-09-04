@@ -13,7 +13,7 @@
 .param Cc=2p
 ```
 
-## Metricc
+## Metrics
 - TBA
 
 ## Plots
