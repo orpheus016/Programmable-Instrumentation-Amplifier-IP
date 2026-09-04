@@ -38,7 +38,8 @@ This block implements the Fine-Gain Stage (Stage 3) of the Programmable Gain Ins
 .param W_TG_P=30u L_TG_P=0.13u NG_TG_P=6
 
 * --- Scaled Output OTA (5x Drive) ---
-.param m8=5 m5=5 Cc=5p```
+.param m8=5 m5=5 Cc=5p
+```
 
 ## Metrics
 - TBA
