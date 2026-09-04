@@ -20,6 +20,7 @@
 - $f_3{dB}$ or fc = 4.02kHz
 - UGB ft = 2.78 MHz
 - PSD noise at 1mHz = $189.56 nV/\sqrt{Hz}$
+- Vos = 124.4 uV
 
 ## Plots
 
