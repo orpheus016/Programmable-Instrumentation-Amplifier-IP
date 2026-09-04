@@ -371,3 +371,4 @@ b=0
   mm_ok=1
 value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e-6 ) + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
 }
+C {title.sym} -580 210 0 0 {name=l4 author="Ibrahim Hanif M"}
