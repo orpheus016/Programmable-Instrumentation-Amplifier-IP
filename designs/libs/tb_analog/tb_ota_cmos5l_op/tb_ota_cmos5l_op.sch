@@ -34,10 +34,10 @@ value="
 .param temp=27
 .param lbias=0.15u wbias=0.15u
 .param m6=1 m7=4 m8=8
-.param linpair=5u winpair=50u
-.param lload=1u wload=2u
-.param lcs=5u wcs=19.13u
-.param Cc=2.2p
+.param linpair=3u winpair=20u
+.param lload=5u wload=10u
+.param lcs=3u wcs=20u
+.param Cc=2p
 .op
 
 .control
