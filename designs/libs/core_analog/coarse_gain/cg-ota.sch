@@ -392,7 +392,7 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {ipin.sym} -620 170 0 0 {name=p1 lab=I_bias}
-C {ipin.sym} 340 10 0 1 {name=p3 lab=V_in+}
+C {ipin.sym} 340 10 0 1 {name=p3 lab=V_in-}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} -350 -120 0 0 {name=M_mp2
 l=2u
 w=11.50u
