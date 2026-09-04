@@ -41,7 +41,11 @@ This block implements the Fine-Gain Stage (Stage 3) of the Programmable Gain Ins
 .param m8=5 m5=5 Cc=5p
 
 ## Metrics
+- TBA
 
 ## Plots
+- TBA
 
 ## Future Plan
+- Complete Simulation
+- Verify stability and PM of the OTA under load
