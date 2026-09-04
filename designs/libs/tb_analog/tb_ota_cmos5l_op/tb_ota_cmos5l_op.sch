@@ -37,7 +37,7 @@ value="
 .param linpair=5u winpair=50u
 .param lload=1u wload=2u
 .param lcs=5u wcs=19.13u
-.param Cc=1.5p
+.param Cc=2.2p
 .op
 
 .control
