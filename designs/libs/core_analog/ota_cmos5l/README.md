@@ -7,24 +7,24 @@
 ```ngspice
 .param lbias=0.15u wbias=0.15u
 .param m6=1 m7=4 m8=8
-.param linpair=5u winpair=50u
-.param lload=1u wload=2u
-.param lcs=5u wcs=19.13u
-.param Cc=2.2p
+.param linpair=3u winpair=20u
+.param lload=5u wload=10u
+.param lcs=3u wcs=20u
+.param Cc=2p
 ```
 
 ## Metrics
-- P = 29.76uW
-- Gain ($A_{ol}$) = 53.34 dB
-- Phase Margin (PM) = 61.67 deg
-- $f_3{dB}$ or fc = 4.82kHz
-- UGB ft = 2.2 MHz
+- P = 29.57uW
+- Gain ($A_{ol}$) = 57.21 dB
+- Phase Margin (PM) = 64.88 deg
+- $f_3{dB}$ or fc = 4.02kHz
+- UGB ft = 2.78 MHz
 
 ## Plots
 
-<img width="760" height="632" alt="image" src="https://github.com/user-attachments/assets/c9328b4b-9e0b-4f66-b80d-a43a97b7d537" />
+<img width="750" height="631" alt="image" src="https://github.com/user-attachments/assets/5dc9a45c-70d2-4940-b5ca-1712d7e57a25" />
 
-<img width="755" height="635" alt="image" src="https://github.com/user-attachments/assets/b6802ff7-ccb0-4183-8a45-fec0070e9e0b" />
+<img width="753" height="635" alt="image" src="https://github.com/user-attachments/assets/2d31245c-d720-4ee0-8aae-e30776df0af3" />
 
 ## Future Plan
 - Defo add more gm on the input pair
