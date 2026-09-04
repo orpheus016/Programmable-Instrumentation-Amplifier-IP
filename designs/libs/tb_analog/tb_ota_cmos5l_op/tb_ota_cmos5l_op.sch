@@ -34,8 +34,8 @@ value="
 .param temp=27
 .param lbias=0.15u wbias=0.15u
 .param m6=1 m7=4 m8=8
-.param linpair=3u winpair=20u
-.param lload=0.5u wload=0.42u
+.param linpair=5u winpair=50u
+.param lload=1u wload=2u
 .param lcs=5u wcs=19.13u
 .param Cc=1.5p
 .op
@@ -129,3 +129,5 @@ C {lab_wire.sym} 480 -480 0 0 {name=p12 sig_type=std_logic lab=vinn}
 C {lab_wire.sym} 600 -430 2 0 {name=p13 sig_type=std_logic lab=vinp}
 C {lab_wire.sym} 600 -350 2 0 {name=p14 sig_type=std_logic lab=vinn}
 C {gnd.sym} 920 -270 0 0 {name=l5 lab=0}
+C {devices/ngspice_get_value.sym} 1420 -520 0 0 {name=r1 node=v(@n.x1.xm5.nsg13_lv_nmos[vsat])
+descr="VDS-Vov M5="}
