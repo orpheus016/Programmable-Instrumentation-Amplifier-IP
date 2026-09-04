@@ -18,7 +18,7 @@ This block implements the Fine-Gain Stage (Stage 3) of the Programmable Gain Ins
 | `VCM` | Analog Input | Common-mode voltage reference (VDD/2). |
 | `D4` - `D9` | Digital Input | 6-bit digital control word for fine gain adjustment. |
 | `VOUT` | Analog Output | Amplified single-ended output passed to the Buffer stage. |
-| `vdd` / `vss` | Power | Analog supply voltage (1.2V - 1.5V) and ground. |
+| `AVDD` / `AVSS` | Power | Analog supply voltage (1.2V - 1.5V) and ground. |
 
 ## Expected Performance
 - **Gain Range:** 0 dB to +3.69 dB
