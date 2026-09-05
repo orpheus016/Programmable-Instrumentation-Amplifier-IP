@@ -1,4 +1,3 @@
-
 # Transmission Gate (`tgate`) Design & Characterization Note
 
 ## 1. Overview & Context
@@ -54,7 +53,7 @@ The switch consists of a complementary NMOS and PMOS pair connected in parallel 
 
 ## 4. Simulation Results & Waveform
 
-![T-Gate On-Resistance vs Input Voltage](./image.png)
+![T-Gate On-Resistance vs Input Voltage](.media/r_on.png)
 
 ### Key Metrics Summary
 

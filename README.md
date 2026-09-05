@@ -81,3 +81,6 @@ Core:
 - [Instrumentation Amplifier](https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/instramp_cmos5l)
 - [Fine-Gain Stage](https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/fine_gain)
 - [Coarse-Gain Stage](https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/coarse_gain)
+- [Digital Decoder](https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_digital/decoder_top_10b)
+- [Output Buffer](https://github.com/orpheus016/Programmable-Instrumentation-Amplifier-IP/tree/main/designs/libs/core_analog/output_buffer)
+
