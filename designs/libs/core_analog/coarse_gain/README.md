@@ -27,5 +27,11 @@ There is a possibility for utilizing 5t OTA from input stage (Stage 1) or fine-g
 | Phase Margin | > 60 deg |
 
 Detailed specs can be known from our proposal
-## Simulation
+## Schematics & Simulations
+Testbench File:
 <img width="891" height="928" alt="image" src="https://github.com/user-attachments/assets/da646c5b-6a7c-4e77-bed7-9a6a09a31c99" />
+Schematic (Bias Generator):
+<img width="938" height="501" alt="image" src="https://github.com/user-attachments/assets/8110786b-1d21-44c2-ae99-ca2e6ac942d0" />
+Schematic (OTA):
+<img width="904" height="431" alt="image" src="https://github.com/user-attachments/assets/4c0e718b-8643-4ea3-bccd-87bb1053f3b7" />
+
