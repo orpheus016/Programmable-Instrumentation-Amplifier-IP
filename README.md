@@ -14,8 +14,8 @@ The core value proposition of this IP is its flexible, linear-in-dB gain configu
 The system features two separate voltage domains: an analog domain (`AVDD`/`AVSS`) for the amplification stages and a digital domain (`DVDD`/`DVSS`) for the 10-bit decoder. The total system gain is calculated as:  
 **G(dB)_total = G(dB)_IA + G(dB)_coarse + G(dB)_fine + G(dB)_buffer**
 
-<!-- Recommended: Upload "Fig 1. Top-level system" from the proposal here -->
-<img width="1000" alt="Top Level Architecture" src="YOUR_SYSTEM_BLOCK_DIAGRAM_URL_HERE" />
+<img width="806" height="323" alt="image" src="https://github.com/user-attachments/assets/2bf6e69c-8966-496c-a588-8b3f7fcb7b78" />
+
 
 ### 1. Instrumentation Amplifier (Input Stage)
 *   **Purpose:** Provides ultra-high input impedance (> 1 GΩ) to buffer sensor signals, establishes strong Common-Mode Rejection Ratio (CMRR), and provides an initial static gain of 18.06 dB (8x).
