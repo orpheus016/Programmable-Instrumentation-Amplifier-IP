@@ -27,7 +27,7 @@ op
 shell mkdir -p result
 run
 write ./result/tb_cg_ota_op.raw
-show all : vgs, vds, vth
+show all : region
 let i_q = -i(v2)
 let p_q = i_q * 1.2
 let p_q_uw = p_q * 1e6
@@ -48,14 +48,21 @@ echo "======================================================="
 
 
 
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOShv.lib mos_tt
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_typ
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerDIO.lib dio_tt
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerCAP.lib cap_typ
-.lib /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt
-.include /foss/pdks/ihp-sg13cmos5l/libs.tech/ngspice/models/diodes.lib
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSlv.lib mos_ff
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOShv.lib mos_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_typ
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerDIO.lib dio_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerCAP.lib cap_typ
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt
+.include /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/diodes.lib
 
+
+
+
+osdi $PDK_ROOT/ihp-sg13g2/libs.tech/ngspice/osdi/psp103.osdi
+osdi $PDK_ROOT/ihp-sg13g2/libs.tech/ngspice/osdi/psp103_nqs.osdi
+osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomi.osdi
+osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomf.osdi
 
 **** end user architecture code
 **.ends
@@ -71,17 +78,17 @@ echo "======================================================="
 *.opin V_out
 *.ipin I_bias
 *.ipin V_inn
-XM1 F1 V_inp net7 net8 sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
-XM2 F2 V_inn net7 net8 sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
+XM1 F1 V_inp net3 VDD sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
+XM2 F2 V_inn net3 VDD sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
 XM3 net1 net1 VDD VDD sg13_lv_pmos w=7.33u l=2u ng=1 m=1 mm_ok=1
 XM4 N_A net1 VDD VDD sg13_lv_pmos w=7.33u l=2u ng=1 m=1 mm_ok=1
 XM7 F1 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
 XM8 F2 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
-XM_tail net7 V_btail VDD VDD sg13_lv_pmos w=5.33u l=2u ng=1 m=4 mm_ok=1
-XM_ctrlp N_B V_ctrlp N_A VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
+XM_tail net3 net5 VDD VDD sg13_lv_pmos w=5.33u l=2u ng=1 m=4 mm_ok=1
+XM_ctrlp N_B VSS N_A VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
 XM_outp V_out N_A VDD VDD sg13_lv_pmos w=22.20u l=0.5u ng=4 m=1 mm_ok=1
-XM_ctrln N_A V_ctrln N_B VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
-XM_outn V_out N_B VSS VSS sg13_lv_nmos w=8.40u l=0.5u ng=4 m=1 mm_ok=1
+XM_ctrln N_A VDD N_B VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
+XM_outn V_out N_B VSS VSS sg13_lv_nmos w=8.40u l=0.5u ng=1 m=1 mm_ok=1
 XM5 net1 V_bn1 F1 VDD sg13_lv_nmos w=6.41u l=2u ng=1 m=1 mm_ok=1
 XM6 N_A V_bn1 F2 VDD sg13_lv_nmos w=6.41u l=2u ng=1 m=1 mm_ok=1
 XM_mp1 net2 net2 VDD VDD sg13_lv_pmos w=2.30u l=2u ng=1 m=1 mm_ok=1
@@ -89,20 +96,14 @@ XM_mn1 net2 I_bias VSS VSS sg13_lv_nmos w=0.87u l=2u ng=1 m=1 mm_ok=1
 XM_refn I_bias I_bias VSS VSS sg13_lv_nmos w=0.87u l=2u ng=1 m=1 mm_ok=1
 XM_mp2 V_bn1 net2 VDD VDD sg13_lv_pmos w=11.50u l=2u ng=2 m=1 mm_ok=1
 XM_mp3 V_bn2 net2 VDD VDD sg13_lv_pmos w=22.30u l=2u ng=4 m=1 mm_ok=1
-XM_bn1 V_bn1 V_bn1 net4 net3 sg13_lv_nmos w=1.60u l=2u ng=1 m=1 mm_ok=1
+XM_bn1 V_bn1 V_bn1 net4 VSS sg13_lv_nmos w=6.41u l=2u ng=1 m=1 mm_ok=1
 XM_bn2 V_bn2 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
-XM_mn2 V_btail I_bias VSS VSS sg13_lv_nmos w=8.7u l=2u ng=1 m=1 mm_ok=1
-XM_rep_tail V_btail V_btail VDD VDD sg13_lv_pmos w=5.33u l=2u ng=1 m=4 mm_ok=1
-XM_mn4 N_B I_bias VSS VSS sg13_lv_nmos w=2.82u l=2u ng=1 m=1 mm_ok=1
+XM_bn3 net4 V_bn2 VSS VSS sg13_lv_nmos w=4.61u l=2u ng=1 m=1 mm_ok=1
+XM_mn2 net5 I_bias VSS VSS sg13_lv_nmos w=8.7u l=2u ng=1 m=1 mm_ok=1
+XM_bp1 net5 net5 VDD VDD sg13_lv_pmos w=5.33u l=2u ng=1 m=4 mm_ok=1
+XM_mn3 N_B I_bias VSS VSS sg13_lv_nmos w=2.82u l=2u ng=1 m=1 mm_ok=1
 XC1 F2 V_out cap_cmomf w=22.58e-6 l=22.58e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
 XC2 N_A V_out cap_cmomf w=15.85e-6 l=15.85e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
-XR1 net4 VSS sub! rhigh w=0.5e-6 l=17e-6 m=1 b=0 mm_ok=1
-XM_mp4 V_ctrln net2 VDD VDD sg13_lv_pmos w=3.73u l=2u ng=1 m=1 mm_ok=1
-XM_rep_ctrln V_ctrln V_ctrln net5 VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
-XM_rep_outn net5 net5 VSS VSS sg13_lv_nmos w=8.40u l=0.5u ng=4 m=1 mm_ok=1
-XM_mn3 V_ctrlp I_bias VSS VSS sg13_lv_nmos w=1.41u l=2u ng=1 m=1 mm_ok=1
-XM_rep_outp net6 net6 VDD VDD sg13_lv_pmos w=22.20u l=0.5u ng=4 m=1 mm_ok=1
-XM_rep_ctrlp V_ctrlp V_ctrlp net6 VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
 .ends
 
 .GLOBAL VDD
