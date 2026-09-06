@@ -220,3 +220,6 @@ __marimo__/
 # Tools
 .venv
 .ipynb_checkpoints
+
+# RAW files
+result

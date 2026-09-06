@@ -4,3 +4,4 @@ PDKPATH=$PDK_ROOT/$PDK
 STD_CELL_LIBRARY=sg13cmos5l_stdcell
 SPICE_USERINIT_DIR=$PDKPATH/libs.tech.ngspice
 KLAYOUT_PATH=$PDKPATH/libs.tech/klayout
+SPICE_USERINIT_DIR=$PDKPATH/libs.tech/ngspice

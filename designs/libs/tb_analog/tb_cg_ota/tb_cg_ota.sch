@@ -48,7 +48,7 @@ if \{[file exists $raw_path]\} \{
     puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
 \}"}
 C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 180 -290 0 0 {name=x1}
-C {simulator_commands_shown.sym} 220 -1060 0 0 {name=General_Params
+C {simulator_commands_shown.sym} 260 -1130 0 0 {name=General_Params
 simulator=ngspice
 only_toplevel=false
 value=".param temp=27
@@ -134,14 +134,14 @@ echo \\"=======================================================\\"
 .endc
 "
 }
-C {simulator_commands_shown.sym} -90 -1020 0 0 {name=Save
+C {simulator_commands_shown.sym} 260 -990 0 0 {name=Save
 simulator=ngspice
 only_toplevel=false
 value=".include tb_cg_ota.save
 
 "
       }
-C {simulator_commands_shown.sym} -300 -960 0 0 {
+C {simulator_commands_shown.sym} -300 -940 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false
@@ -152,7 +152,6 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt
-.include $::MODELS_NGSPICE/diodes.lib
 )"
       }
 C {launcher.sym} -250 -520 0 0 {name=h4
@@ -251,3 +250,14 @@ echo \\"=======================================================\\"
 .endc
 "
 }
+C {simulator_commands_shown.sym} -310 -1140 0 0 {
+name=Osdi_Ngspice
+simulator=ngspice
+only_toplevel=false
+value="pre_osdi $PDKPATH/libs.tech/ngspice/osdi/psp103.osdi
+pre_osdi $PDKPATH/libs.tech/ngspice/osdi/psp103_nqs.osdi
+pre_osdi $PDKPATH/libs.tech/ngspice/osdi/r3_cmc.osdi
+pre_osdi $PDKPATH/libs.tech/ngspice/osdi/mosvar.osdi
+pre_osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomi.osdi
+pre_osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomf.osdi"
+      spice_ignore=true}
