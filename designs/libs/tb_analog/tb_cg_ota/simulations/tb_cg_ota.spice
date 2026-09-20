@@ -1,0 +1,159 @@
+** sch_path: /foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/tb_analog/tb_cg_ota/tb_cg_ota.sch
+**.subckt tb_cg_ota
+I0 VDD I_B {ib}
+V2 VDD 0 {vdd}
+x3 VDD VINP3 OUT3 OUT3 I_B VSS cg_ota
+V5 VINP3 VSS {vicm}
+C2 OUT3 VSS {cl}
+V3 VSS 0 0
+**** begin user architecture code
+
+
+.param temp=27
+.param cl=2p
+.param ib=1u
+.param vdd=1.2
+.param vicm=vdd/2
+.param vid=0
+
+
+
+
+
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOShv.lib mos_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_typ
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerDIO.lib dio_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerCAP.lib cap_typ
+* Comment this line below for Monte-Carlo simulation
+* .lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt
+* Comment out this for Monte-Carlo simulation
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt mismatch
+
+
+
+
+.subckt loopgainprobe a b
+Ii 0 x DC 0 AC 0
+Vi x a DC 0 AC 1
+Vnodebuffer b x 0
+.ends loopgainprobe
+
+.func tian_loop() {1/(1/(2*(ac1.i(v.x999.Vi)*ac2.v(x999.x)-ac1.v(x999.x)*ac2.i(v.x999.Vi))+ac1.v(x999.x)+ac2.i(v.x999.Vi))-1)}
+
+
+
+
+.control
+shell mkdir -p result
+
+* LARGE-SIGNAL STEP RESPONSE (SLEW RATE & PROPAGATION DELAYS)
+* Stimulus: Pulse swing 0.2 V to 1.0 V (Delta V = 0.8 V, Vcm = 0.6 V)
+alter @v5[pulse] = [ 0.2 1.0 20n 1n 1n 1u 2.5u ]
+
+tran 0.2n 2.5u
+run
+
+let v_in  = v(vinp3)
+let v_out = v(out3)
+
+* --- Rising Edge Analysis ---
+* Input 50% crossing (0.60 V)
+meas tran t_in_r50  when v_in=0.60 rise=1
+
+* Output 10% (0.28 V), 50% (0.60 V), and 90% (0.92 V) crossings
+meas tran t_out_r10 when v_out=0.28 rise=1
+meas tran t_out_r50 when v_out=0.60 rise=1
+meas tran t_out_r90 when v_out=0.92 rise=1
+
+* Compute Rise Time, Positive Slew Rate (SR+), and Propagation Delay (tpLH)
+let t_rise_ns = (t_out_r90 - t_out_r10) * 1e9
+let sr_pos    = (0.92 - 0.28) / (t_out_r90 - t_out_r10) / 1e6
+let t_plh_ns  = (t_out_r50 - t_in_r50) * 1e9
+
+* --- Falling Edge Analysis ---
+* Input 50% crossing (0.60 V)
+meas tran t_in_f50  when v_in=0.60 fall=1
+
+* Output 90% (0.92 V), 50% (0.60 V), and 10% (0.28 V) crossings
+meas tran t_out_f90 when v_out=0.92 fall=1
+meas tran t_out_f50 when v_out=0.60 fall=1
+meas tran t_out_f10 when v_out=0.28 fall=1
+
+* Compute Fall Time, Negative Slew Rate (SR-), and Propagation Delay (tpHL)
+let t_fall_ns = (t_out_f10 - t_out_f90) * 1e9
+let sr_neg    = (0.92 - 0.28) / (t_out_f10 - t_out_f90) / 1e6
+let t_phl_ns  = (t_out_f50 - t_in_f50) * 1e9
+
+* Save output waveforms to the specified rawfile
+write ./result/tb_cg_ota_tran_large.raw v_in v_out
+
+* Print execution summary
+echo "======================================================="
+echo "   OTA LARGE-SIGNAL TRANSIENT SIMULATION RESULTS       "
+echo "======================================================="
+echo " Positive Slew Rate (SR+)  : " $&sr_pos    " V/us"
+echo " Negative Slew Rate (SR-)  : " $&sr_neg    " V/us"
+echo " Rise Time 10% - 90% (tr)  : " $&t_rise_ns " ns"
+echo " Fall Time 90% - 10% (tf)  : " $&t_fall_ns " ns"
+echo " Propagation Delay (tpLH)  : " $&t_plh_ns  " ns"
+echo " Propagation Delay (tpHL)  : " $&t_phl_ns  " ns"
+echo "======================================================="
+
+* Reset v5 source back to clean DC operating point
+alter @v5[pulse] = [ 0.6 0.6 0 0 0 1u 2u ]
+
+plot v_out v_in
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym #
+*+ of pins=6
+** sym_path: /foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym
+** sch_path: /foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sch
+.subckt cg_ota VDD V_inp V_inn V_out I_bias VSS
+*.ipin V_inn
+*.ipin VDD
+*.ipin VSS
+*.opin V_out
+*.ipin I_bias
+*.ipin V_inp
+XM1 F1 V_inn net6 VDD sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
+XM2 F2 V_inp net6 VDD sg13_lv_pmos w=26.56u l=2u ng=4 m=1 mm_ok=1
+XM3 net5 net5 VDD VDD sg13_lv_pmos w=7.33u l=2u ng=1 m=1 mm_ok=1
+XM4 N_A net5 VDD VDD sg13_lv_pmos w=7.33u l=2u ng=1 m=1 mm_ok=1
+XM7 F1 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
+XM8 F2 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
+XM_tail net6 V_btail VDD VDD sg13_lv_pmos w=7.46u l=2u ng=1 m=8 mm_ok=1
+XM_ctrlp N_B V_ctrlp N_A VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
+XM_outp V_out N_A VDD VDD sg13_lv_pmos w=22.20u l=0.5u ng=4 m=1 mm_ok=1
+XM_ctrln N_A V_ctrln N_B VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
+XM_outn V_out N_B VSS VSS sg13_lv_nmos w=8.4u l=0.5u ng=1 m=1 mm_ok=1
+XM5 net5 V_bn1 F1 VSS sg13_lv_nmos w=6.41u l=2u ng=1 m=1 mm_ok=1
+XM6 N_A V_bn1 F2 VSS sg13_lv_nmos w=6.41u l=2u ng=1 m=1 mm_ok=1
+XM_mp1 net1 net1 VDD VDD sg13_lv_pmos w=2.30u l=2u ng=1 m=1 mm_ok=1
+XM_mn1 net1 I_bias VSS VSS sg13_lv_nmos w=0.87u l=2u ng=1 m=1 mm_ok=1
+XM_refn I_bias I_bias VSS VSS sg13_lv_nmos w=0.87u l=2u ng=1 m=1 mm_ok=1
+XM_mp2 V_bn1 net1 VDD VDD sg13_lv_pmos w=11.50u l=2u ng=2 m=1 mm_ok=1
+XM_mp3 V_bn2 net1 VDD VDD sg13_lv_pmos w=23u l=2u ng=4 m=1 mm_ok=1
+XM_bn1 V_bn1 V_bn1 net2 VSS sg13_lv_nmos w=1.60u l=2u ng=1 m=1 mm_ok=1
+XM_bn2 V_bn2 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
+XM_mn2 V_btail I_bias VSS VSS sg13_lv_nmos w=6u l=2u ng=1 m=1 mm_ok=1
+XM_rep_tail V_btail V_btail VDD VDD sg13_lv_pmos w=7.46u l=2u ng=1 m=8 mm_ok=1
+XM_mn4 N_B I_bias VSS VSS sg13_lv_nmos w=2.82u l=2u ng=1 m=1 mm_ok=1
+XC1 F2 V_out cap_cmomf w=26.48e-6 l=26.48e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
+XC2 N_A V_out cap_cmomf w=22.07e-6 l=22.07e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
+XR1 net2 VSS VSS rhigh w=0.5e-6 l=17e-6 m=1 b=0 mm_ok=1
+XM_mp4 V_ctrln net1 VDD VDD sg13_lv_pmos w=3.73u l=2u ng=1 m=1 mm_ok=1
+XM_rep_ctrln V_ctrln V_ctrln net3 VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
+XM_rep_outn net3 net3 VSS VSS sg13_lv_nmos w=2.10u l=0.5u ng=1 m=1 mm_ok=1
+XM_mn3 V_ctrlp I_bias VSS VSS sg13_lv_nmos w=1.41u l=2u ng=1 m=1 mm_ok=1
+XM_rep_outp net4 net4 VDD VDD sg13_lv_pmos w=5.55u l=0.5u ng=1 m=1 mm_ok=1
+XM_rep_ctrlp V_ctrlp V_ctrlp net4 VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
+XM_mp5 N_A net1 VDD VDD sg13_lv_pmos w=7.46u l=2u ng=1 m=1 mm_ok=1
+.ends
+
+.GLOBAL VDD
+.end
