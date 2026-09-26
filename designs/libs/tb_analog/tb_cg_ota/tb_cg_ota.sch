@@ -22,114 +22,349 @@ L 4 2060 -760 2060 30 {}
 L 4 1270 -760 2060 -760 {}
 L 4 -320 -1280 -320 -1040 {}
 L 4 -320 -1280 2060 -1280 {}
-L 4 2060 -1280 2060 -760 {}
 L 4 -320 -230 -10 -230 {}
-L 4 -320 -510 -10 -510 {}
+L 4 -320 -540 -10 -540 {}
 L 4 -320 -370 -10 -370 {}
-L 4 800 -1010 800 -760 {}
-L 4 800 -1010 1100 -1010 {}
-L 4 1100 -1010 1100 -760 {}
-B 2 -320 70 780 520 {flags=graph
-y1=0
-y2=2
+L 4 650 -1010 650 -760 {}
+L 4 -320 30 -320 1620 {}
+L 4 -320 1620 1700 1620 {}
+L 4 -320 830 340 830 {}
+L 4 340 30 340 830 {}
+L 4 1700 30 1700 830 {}
+L 4 1700 830 1700 1250 {}
+L 4 1700 1250 1700 1620 {}
+L 4 650 -1010 880 -1010 {}
+L 4 880 -1010 880 -760 {}
+L 4 2060 -1280 2060 -760 {}
+L 4 340 830 340 1620 {}
+L 4 1000 830 1000 1620 {}
+L 4 340 830 1000 830 {}
+L 4 1000 460 1000 830 {}
+L 4 1000 460 1700 460 {}
+L 4 1000 1260 1700 1260 {}
+B 2 -300 100 320 420 {flags=graph
+y1=-0.1
+y2=1.5
 ypos1=0
 ypos2=2
+divy=10
+subdivy=1
+unity="V"
+x1=-2
+x2=2
+divx=20
+subdivx=1
+xlabmag=1.25
+ylabmag=1.75
+legendmag=1.0
+node="vout_sw"
+color=""
+dataset=-1
+unitx="V"
+logx=0
+logy=0
+}
+B 2 -300 470 320 790 {flags=graph
+y1=0
+y2=1.5k
+ypos1=-0.1
+ypos2=1
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=10e-6
-divx=5
+x1=-0.8
+x2=0.8
+divx=20
 subdivx=1
-xlabmag=1.0
+xlabmag=1.5
 ylabmag=1.0
 legendmag=1.0
-node=""
+node="diff_gain"
 color=""
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
-B 2 830 70 1930 520 {flags=graph
-y1=0
-y2=2
-ypos1=0
-ypos2=2
-divy=5
+B 2 -300 900 320 1220 {flags=graph
+y1=-0.1
+y2=1.6
+ypos1="0"
+ypos2=1
+divy=8
 subdivy=1
-unity=1
-x1=0
-x2=10e-6
-divx=5
+unity=A
+x1=-60m
+x2=60m
+divx=6
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
+legendmag=1.5
+node="i_outp_ma
+i_outn_ma"
+color="4 6"
+dataset=0
+unitx=V
+logx=0
+logy=0
+}
+B 2 -300 1250 320 1570 {flags=graph
+y1=0
+y2=145
+ypos1=0
+ypos2=2
+divy=25
+subdivy=1
+unity=1
+x1=-60m
+x2=60m
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=3.0
 legendmag=1.0
-node=""
+node="gm_eff_ms"
 color=""
 dataset=-1
 unitx=1
 logx=0
 logy=0
 }
-B 2 -320 550 780 1000 {flags=graph
-y1=0
-y2=2
+B 2 360 100 980 420 {flags=graph
+y1=-200
+y2=190
 ypos1=0
 ypos2=2
-divy=5
+divy=20
 subdivy=1
-unity=1
+unity="dB"
 x1=0
-x2=10e-6
+x2=10
+divx=20
+subdivx=1
+xlabmag=1.25
+ylabmag=1.75
+legendmag=1.0
+node="re(loop_mag)
+re(loop_ph)"
+color="4 5"
+dataset=-1
+unitx="Hz"
+logx=1
+logy=0
+}
+B 2 360 470 980 790 {flags=graph
+y1=0
+y2=5500
+ypos1=0
+ypos2=1
+divy=10
+subdivy=1
+unity="V/rtHz"
+x1=1
+x2=8
+divx=20
+subdivx=1
+xlabmag=1
+ylabmag=1.2
+legendmag=1.0
+node="irn_nv"
+color="4"
+dataset=-1
+unitx="Hz"
+logx=1
+logy=0
+}
+B 2 1030 100 1650 420 {flags=graph
+y1=-200
+y2=400
+ypos1=0
+ypos2=1
+divy=20
+subdivy=1
+unity="dB
+deg"
+x1=0
+x2=10
+divx=20
+subdivx=1
+xlabmag=1.25
+ylabmag=2
+legendmag=1.0
+node="re(loop_magnitude)
+re(loop_phase)"
+color="4 6"
+dataset=-1
+unitx="Hz"
+logx=1
+logy=0
+}
+B 2 360 880 980 1200 {flags="graphs"
+y1=0
+y2=1.1
+ypos1=0
+ypos2=2
+divy=10
+subdivy=1
+unity="V V"
+x1=0
+x2=2u
 divx=5
 subdivx=1
-xlabmag=1.0
-ylabmag=1.0
+xlabmag=1
+ylabmag=1.25
 legendmag=1.0
-node=""
-color=""
+node="v_outl
+v_inl"
+color="1 4"
 dataset=-1
-unitx=1
+unitx="time"
 logx=0
 logy=0
 }
-B 2 830 550 1930 1000 {flags=graph
-y1=0
-y2=2
+B 2 1040 900 1660 1220 {flags=graph
+y1=-10
+y2=80
 ypos1=0
-ypos2=2
-divy=5
+ypos2=1
+divy=10
 subdivy=1
-unity=1
+unity="dB"
 x1=0
-x2=10e-6
-divx=5
+x2=10
+divx=15
 subdivx=1
-xlabmag=1.0
-ylabmag=1.0
+xlabmag=1
+ylabmag=1.25
 legendmag=1.0
-node=""
+node="re(cmrr_curve)"
 color=""
 dataset=-1
-unitx=1
+unitx="Hz"
+logx=1
+logy=0
+}
+B 2 1040 530 1660 850 {flags=graph
+y1=-5
+y2=40
+ypos1=0
+ypos2=1
+divy=15
+subdivy=1
+unity="dB"
+x1=0
+x2=10
+divx=15
+subdivx=1
+xlabmag=1
+ylabmag=1.5
+legendmag=1.0
+node="re(psrr_curve)"
+color=""
+dataset=-1
+unitx="Hz"
+logx=1
+logy=0
+}
+B 2 360 1240 980 1560 {flags=graph
+y1=0.54
+y2=0.66
+ypos1=0
+ypos2=2
+divy=15
+subdivy=1
+unity="V"
+x1=0
+x2=1.2u
+divx=6
+subdivx=1
+xlabmag=1
+ylabmag=1.25
+legendmag=1.0
+node="v_outs
+v_ins"
+color="1 4"
+dataset=-1
+unitx="time"
+logx=0
+logy=0
+}
+B 2 1040 1300 1340 1440 {flags=graph
+y1=0
+y2=1.2
+ypos1=0
+ypos2=1
+divy=10
+subdivy=1
+unity="V"
+x1=0
+x2=1.2
+divx=10
+subdivx=1
+xlabmag=1.25
+ylabmag=1.5
+legendmag=1.0
+node="v_out"
+color=""
+dataset=-1
+unitx="V"
+logx=0
+logy=0
+}
+B 2 1360 1300 1660 1440 {flags=graph
+y1=0
+y2=30
+ypos1=0
+ypos2=1
+divy=10
+subdivy=1
+unity="V"
+x1=0
+x2=1.2
+divx=10
+subdivx=1
+xlabmag=1.25
+ylabmag=1.5
+legendmag=1.0
+node="buffer_gain"
+color=""
+dataset=-1
+unitx="V"
+logx=0
+logy=0
+}
+B 2 1040 1460 1660 1600 {flags=graph
+y1=0
+y2=300
+ypos1=0
+ypos2=1
+divy=10
+subdivy=1
+unity="V"
+x1=0
+x2=1.2
+divx=10
+subdivx=1
+xlabmag=1.25
+ylabmag=1.5
+legendmag=1.0
+node="track_error_mv"
+color=""
+dataset=-1
+unitx="V"
 logx=0
 logy=0
 }
 T {To simulate and generate .raw data
 and print results, press this
-button above with Ctrl+Click} -310 -700 0 0 0.2 0.2 {}
+button above with Ctrl+Click} -310 -710 0 0 0.2 0.2 {}
 T {Disable/activate 
 scripts/blocks by
-pressing Shift+T.
-
-For widespread AB
-simulation, v7 and its pins
-must be active} -310 -650 0 0 0.2 0.2 {}
+pressing Shift+T.} -310 -660 0 0 0.2 0.2 {}
 T {These buttons below
 are for plotting
-graphs below} -310 -560 0 0 0.2 0.2 {}
+graphs below} -310 -610 0 0 0.2 0.2 {}
 T {OPEN-LOOP CIRCUIT} 140 -740 0 0 0.4 0.4 {}
 T {LOOP-GAIN CIRCUIT (Tian Method)} 740 -740 0 0 0.4 0.4 {}
 T {Recommended:
@@ -137,21 +372,65 @@ Do simulation per script
 with "SimulateNGSPICE"
 button then click
 each plot buttons
-to view the graphs} -150 -650 0 0 0.2 0.2 {}
+to view the graphs} -180 -670 0 0 0.2 0.2 {}
 T {All .raw files
 are saved on
-./simulations/result} -150 -560 0 0 0.2 0.2 {}
+./simulations/result} -180 -590 0 0 0.2 0.2 {}
 T {CLOSE-LOOP CIRCUIT} 1320 -740 0 0 0.4 0.4 {}
-T {Change general simulation parameters here!} 1120 -1000 0 0 0.5 0.5 {}
+T {Change general simulation parameters here!} 530 -1040 0 0 0.3 0.3 {}
+T {POWER & BIASING} 690 -990 0 0 0.3 0.3 {}
+T {DC Swing Plots} -80 50 0 0 0.5 0.5 {}
+T {Activate C1 and v1, v4, and all of its pins for
+dc swing and dc open-loop operating simulations.
+
+Enable all of vsource, C1, and all of its pins
+for widespread AB simulation.} 110 -700 0 0 0.2 0.2 {}
+T {Enable all vsources, C3, probe, and all of their pins
+for each simulation.
+
+For PVT scripts, parameters must be changed per corner simulation.
+Options are "tt", "ss", "ff", "sf", or "fs". Also, PVT results
+will be appended. For each corner, simulation can be done once.
+If you want to retry the simulation, please remove all files first.
+"rm -rf ./result/tb_cg_ota_pvt_all.txt ./result/tb_cg_ota_pvt_*.raw"} 760 -700 0 0 0.2 0.2 {}
+T {Enable all for each simulation.} 1320 -700 0 0 0.2 0.2 {}
+T {vout_sw (V) vs v4 (V)} -30 430 0 0 0.25 0.25 {}
+T {diff_gain (V/V) vs v4 (V)} -40 800 0 0 0.25 0.25 {}
+T {Wingspread AB Plots} -120 850 0 0 0.5 0.5 {}
+T {i_out (mA) vs vid_vec (V)} -90 1230 0 0 0.25 0.25 {}
+T {gm_eff (mA/V or mS) vs vid_vec (V)} -90 1580 0 0 0.25 0.25 {}
+T {AC, Noise, and PVT Plots} 850 50 0 0 0.5 0.5 {}
+T {loop_mag (dB) & loop_phase (deg) vs frequency log. (Hz)} 510 440 0 0 0.25 0.25 {}
+T {IRN (nV/sqrt(Hz)) vs frequency log. (Hz)} 570 800 0 0 0.25 0.25 {}
+T {PVT Plots} 1340 430 0 0 0.25 0.25 {}
+T {Transient Plot} 580 840 0 0 0.5 0.5 {}
+T {PSRR and CMRR Plots} 1220 480 0 0 0.5 0.5 {}
+T {} 2700 50 0 0 0.5 0.5 {}
+T {Large Transient Plot (Slew Rate, Time Rise, Time Fall, and Propagation Delay)} 420 1210 0 0 0.25 0.25 {}
+T {Small Transient Plot (Delay, Rise Time, Settling Time, and Overshoot)} 440 1570 0 0 0.25 0.25 {}
+T {ICMR Plots} 1300 1270 0 0 0.4 0.4 {}
+T {PSRR (dB) vs frequency log. (Hz)} 1240 860 0 0 0.25 0.25 {}
+T {CMRR (dB) vs frequency log. (Hz)} 1250 1230 0 0 0.25 0.25 {}
+T {Change simulation blocks for PVT simulations here!
+For typical libraries (tt), use "Libs_Ngspice_Typ"!} -280 -1250 0 0 0.3 0.3 {}
+T {V_out (V) vs V_in (V)} 1150 1440 0 0 0.15 0.15 {}
+T {buffer_gain (V/V) vs V_in (V)} 1470 1440 0 0 0.15 0.15 {}
+T {track_error (mV) vs V_in (V)} 1300 1600 0 0 0.15 0.15 {}
+T {If raw files didn't exist in ./result directory,
+you have to simulate all of them first.
+If raw files existed in ./result directory,
+you can plot them all.
+
+Status: All raw files have existed. Plot ready} 1720 50 0 0 0.4 0.4 {}
 N 170 -160 170 -130 {lab=VSS
 spice_ignore=true}
 N 270 -230 290 -230 {lab=OUT1
 spice_ignore=true}
 N 170 -330 170 -300 {lab=VDD
 spice_ignore=true}
-N 940 -940 940 -930 {lab=VDD}
-N 1010 -910 1010 -890 {lab=VDD}
-N 1010 -830 1010 -810 {lab=I_B}
+N 740 -910 740 -900 {lab=VDD}
+N 820 -910 820 -890 {lab=VDD}
+N 820 -830 820 -810 {lab=I_B}
 N 80 -250 100 -250 {lab=VINP1
 spice_ignore=true}
 N 80 -210 100 -210 {lab=I_B
@@ -186,7 +465,7 @@ N 50 -650 50 -630 {lab=VINP1
 spice_ignore=true}
 N 250 -550 250 -530 {lab=OUT1
 spice_ignore=true}
-N 250 -470 250 -440 {lab=OUT1
+N 250 -470 250 -440 {lab=VSS
 spice_ignore=true}
 N 760 -270 780 -270 {lab=VINN2
 spice_ignore=true}
@@ -194,41 +473,41 @@ N 820 -520 840 -520 {lab=OUT2
 spice_ignore=true}
 N 1000 -520 1020 -520 {lab=VINN2
 spice_ignore=true}
-N 1450 -130 1450 -120 {lab=VSS
-}
-N 1600 -220 1640 -220 {lab=OUT3
-}
-N 1450 -320 1450 -290 {lab=VDD
-}
-N 1360 -240 1380 -240 {lab=VINP3
-}
-N 1360 -200 1380 -200 {lab=I_B
-}
-N 1340 -560 1340 -540 {lab=VINP3
-}
-N 1340 -480 1340 -460 {lab=VSS
-}
-N 1370 -220 1380 -220 {lab=OUT3
-}
-N 1370 -360 1370 -220 {lab=OUT3
-}
-N 1370 -360 1560 -360 {lab=OUT3
-}
-N 1560 -360 1560 -220 {lab=OUT3
-}
-N 1550 -220 1560 -220 {lab=OUT3
-}
-N 1600 -220 1600 -190 {lab=OUT3
-}
-N 1560 -220 1600 -220 {lab=OUT3
-}
-N 1450 -130 1600 -130 {lab=VSS
-}
-N 1450 -150 1450 -130 {lab=VSS
-}
-N 940 -870 940 -850 {lab=0}
-N 880 -870 880 -850 {lab=0}
-N 880 -940 880 -930 {lab=VSS}
+N 1460 -130 1460 -120 {lab=VSS
+spice_ignore=true}
+N 1610 -220 1650 -220 {lab=OUT3
+spice_ignore=true}
+N 1460 -320 1460 -290 {lab=VDD
+spice_ignore=true}
+N 1370 -240 1390 -240 {lab=VINP3
+spice_ignore=true}
+N 1370 -200 1390 -200 {lab=I_B
+spice_ignore=true}
+N 1350 -560 1350 -540 {lab=VINP3
+spice_ignore=true}
+N 1350 -480 1350 -460 {lab=VSS
+spice_ignore=true}
+N 1380 -220 1390 -220 {lab=OUT3
+spice_ignore=true}
+N 1380 -360 1380 -220 {lab=OUT3
+spice_ignore=true}
+N 1380 -360 1570 -360 {lab=OUT3
+spice_ignore=true}
+N 1570 -360 1570 -220 {lab=OUT3
+spice_ignore=true}
+N 1560 -220 1570 -220 {lab=OUT3
+spice_ignore=true}
+N 1610 -220 1610 -190 {lab=OUT3
+spice_ignore=true}
+N 1570 -220 1610 -220 {lab=OUT3
+spice_ignore=true}
+N 1460 -130 1610 -130 {lab=VSS
+spice_ignore=true}
+N 1460 -150 1460 -130 {lab=VSS
+spice_ignore=true}
+N 740 -840 740 -820 {lab=0}
+N 680 -840 680 -820 {lab=0}
+N 680 -910 680 -900 {lab=VSS}
 N 50 -540 60 -540 {lab=VINN1
 spice_ignore=true}
 N 50 -540 50 -510 {lab=VINN1
@@ -244,8 +523,8 @@ spice_ignore=true}
 C {lab_pin.sym} 290 -230 2 0 {name=p1 sig_type=std_logic lab=OUT1
 spice_ignore=true}
 C {launcher.sym} -250 -480 0 0 {name=h1
-descr=Annotate_OP
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
+descr=Op_Open_Loop
+tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_dc-open-op.raw]
 if \{[file exists $raw_path]\} \{
     xschem annotate_op $raw_path
 \} else \{
@@ -253,7 +532,7 @@ if \{[file exists $raw_path]\} \{
 \}"}
 C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 200 -210 0 0 {name=x1
 spice_ignore=true}
-C {simulator_commands_shown.sym} 1120 -900 0 0 {name=General_Params
+C {simulator_commands_shown.sym} 890 -990 0 0 {name=General_Params
 simulator=ngspice
 only_toplevel=false
 value=".param temp=27
@@ -266,16 +545,16 @@ value=".param temp=27
       }
 C {vsource.sym} 50 -480 0 0 {name=V1 value=\{vicm\} savecurrent=false
 spice_ignore=true}
-C {isource.sym} 1010 -860 0 0 {name=I0 value=\{ib\}}
-C {vsource.sym} 940 -900 0 0 {name=V2 value=\{vdd\} savecurrent=false}
-C {gnd.sym} 940 -850 0 0 {name=l1 lab=0}
+C {isource.sym} 820 -860 0 0 {name=I0 value=\{ib\}}
+C {vsource.sym} 740 -870 0 0 {name=V2 value=\{vdd\} savecurrent=false}
+C {gnd.sym} 740 -820 0 0 {name=l1 lab=0}
 C {vdd.sym} 170 -330 0 0 {name=l2 lab=VDD
 spice_ignore=true}
-C {vdd.sym} 940 -940 0 0 {name=l3 lab=VDD}
-C {vdd.sym} 1010 -910 0 0 {name=l4 lab=VDD}
+C {vdd.sym} 740 -910 0 0 {name=l3 lab=VDD}
+C {vdd.sym} 820 -910 0 0 {name=l4 lab=VDD}
 C {lab_pin.sym} 80 -210 0 0 {name=p4 sig_type=std_logic lab=I_B
 spice_ignore=true}
-C {lab_pin.sym} 1010 -810 3 0 {name=p7 sig_type=std_logic lab=I_B}
+C {lab_pin.sym} 820 -810 3 0 {name=p7 sig_type=std_logic lab=I_B}
 C {lab_pin.sym} 50 -650 1 0 {name=p9 sig_type=std_logic lab=VINP1
 spice_ignore=true}
 C {lab_pin.sym} 60 -540 2 0 {name=p10 sig_type=std_logic lab=VINN1
@@ -292,10 +571,10 @@ C {lab_pin.sym} 160 -540 1 0 {name=p13 sig_type=std_logic lab=OUT1
 spice_ignore=true}
 C {launcher.sym} -250 -440 0 0 {name=h2
 descr=Plot_DC_Swing
-tclcommand=www.google.com}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_dc-sweep.raw] dc"}
 C {launcher.sym} -250 -400 0 0 {name=h3
 descr=Plot_Wingspread_AB
-tclcommand=www.google.com}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_wingspread.raw] dc"}
 C {launcher.sym} -250 -730 0 0 {name=h5
 descr=SimulateNGSPICE
 tclcommand="
@@ -348,13 +627,7 @@ echo \\"=======================================================\\"
 .endc
 "
 spice_ignore=true}
-C {simulator_commands_shown.sym} 260 -1000 0 0 {name=Save
-simulator=ngspice
-only_toplevel=false
-value=".include ./simulations/tb_cg_ota.save
-"
-      spice_ignore=true}
-C {simulator_commands_shown.sym} -300 -960 0 0 {name=Libs_Ngspice_Normal
+C {simulator_commands_shown.sym} -300 -960 0 0 {name=Libs_Ngspice_Typ
 simulator=ngspice
 only_toplevel=false
 value="tcleval(
@@ -363,44 +636,21 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerRES.lib res_typ
 .lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
-* Comment this line below for Monte-Carlo simulation
-* .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
-* Comment out this for Monte-Carlo simulation
-.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt mismatch
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
 )"
-      }
+      spice_ignore=true}
 C {launcher.sym} -250 -340 0 0 {name=h4
 descr=Plot_AC
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_ac.raw]"}
 C {launcher.sym} -250 -300 0 0 {name=h6
 descr=Plot_Noise
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_noise.raw]"}
 C {launcher.sym} -250 -80 0 0 {name=h8
 descr=Plot_ICMR
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_icmr.raw]"}
 C {launcher.sym} -250 -40 0 0 {name=h10
 descr=Plot_PSRR
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_psrr.raw]"}
 C {simulator_commands.sym} 390 -450 0 0 {name=DC_Swing
 simulator=ngspice
 only_toplevel="false" 
@@ -426,22 +676,17 @@ echo \\"==========================================\\"
 print max_gain max_gain_db
 echo \\"==========================================\\"
 
-plot vout_sw vs vid_vec
-plot diff_gain vs vid_vec
-
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 390 -220 0 0 {name=Widespread-AB
+C {simulator_commands.sym} 380 -260 0 0 {name=Wingspread-AB
 simulator=ngspice
 only_toplevel=false 
-value="* Enable v2 and its lab_pins
+value="* Enable v7 and its lab_pins
 .control
-save all
+save all @n.x1.xm_outp.nsg13_lv_pmos[ids] @n.x1.xm_outn.nsg13_lv_nmos[ids]
 shell mkdir -p result
 
 dc v4 -50m 50m 0.2m
-
-run
 
 * Parameters
 let vid_vec = v(vinp1) - v(vinn1)
@@ -456,12 +701,14 @@ let gm_eff_ms = gm_eff * 1e3
 
 write ./result/tb_cg_ota_wingspread.raw vid_vec i_out_ma i_outp_ma i_outn_ma gm_eff_ms
 
-meas dc gm_center find gm_eff_ms when vid_vec=0
-meas dc iq_stage2 find i_outp_ma when vid_vec=0
+meas dc gm_center find gm_eff_ms at=0
+let iq_outp_stage2 = i_outp_ma[250]
+let iq_outn_stage2 = i_outn_ma[250]
 
 echo \\"=======================================================\\"
 echo \\" gm on Vid = 0V: \\" $&gm_center \\" mA/V\\"
-echo \\" Quiescent Current of Stage 2 (Vid = 0V): \\" $&iq_stage2 \\" mA\\"
+echo \\" Quiescent Current of Stage 2 (Vid = 0V) on M_outp: \\" $&iq_outp_stage2 \\" mA\\"
+echo \\" Quiescent Current of Stage 2 (Vid = 0V) on M_outn: \\" $&iq_outn_stage2 \\" mA\\"
 echo \\"=======================================================\\"
 
 plot gm_eff_ms vs vid_vec
@@ -470,17 +717,6 @@ plot i_outp_ma i_outn_ma vs vid_vec
 .endc
 "
 spice_ignore=true}
-C {simulator_commands_shown.sym} -310 -1150 0 0 {
-name=Osdi_Ngspice
-simulator=ngspice
-only_toplevel=false
-value="pre_osdi $PDKPATH/libs.tech/ngspice/osdi/psp103.osdi
-pre_osdi $PDKPATH/libs.tech/ngspice/osdi/psp103_nqs.osdi
-pre_osdi $PDKPATH/libs.tech/ngspice/osdi/r3_cmc.osdi
-pre_osdi $PDKPATH/libs.tech/ngspice/osdi/mosvar.osdi
-pre_osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomi.osdi
-pre_osdi $PDKPATH/libs.tech/ngspice/osdi/cap_cmomf.osdi"
-      spice_ignore=true}
 C {lab_pin.sym} 50 -430 3 0 {name=p8 sig_type=std_logic lab=VSS
 spice_ignore=true}
 C {lab_pin.sym} 760 -270 0 0 {name=p14 sig_type=std_logic lab=VINN2
@@ -515,7 +751,7 @@ C {lab_pin.sym} 710 -570 1 0 {name=p26 sig_type=std_logic lab=OUT2
 spice_ignore=true}
 C {vsource.sym} 50 -600 0 0 {name=V4 value=\{vid\} savecurrent=false
 spice_ignore=true}
-C {simulator_commands.sym} 1110 -470 0 0 {name=AC
+C {simulator_commands.sym} 1110 -550 0 0 {name=AC
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -568,15 +804,14 @@ echo \\" Phase Crossover (f_180): \\" $&f_180 \\" Hz\\"
 echo \\" GBW Product (PM): \\" $&gbw_calc \\" Hz\\"
 echo \\"=======================================================\\"
 
-plot loop_mag loop_ph xlog
-
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1110 -290 0 0 {name=Noise
+C {simulator_commands.sym} 1110 -370 0 0 {name=Noise
 simulator=ngspice
 only_toplevel=false 
 value=".control
 save all
+destroy all
 shell mkdir -p result
 
 * Tian probe idled
@@ -628,8 +863,6 @@ echo \\" IRN @ 100 kHz: \\" $&irn_100k \\" nV/sqrt(Hz)\\"
 echo \\" IRN @ 1 MHz (Thermal Noise Floor): \\" $&irn_1meg \\" nV/sqrt(Hz)\\"
 echo \\"=======================================================\\"
 
-plot irn_nv xlog
-
 .endc
 "
 spice_ignore=true}
@@ -644,7 +877,7 @@ C {lab_pin.sym} 820 -520 0 0 {name=p19 sig_type=std_logic lab=OUT2
 spice_ignore=true}
 C {lab_pin.sym} 1020 -520 2 0 {name=p22 sig_type=std_logic lab=VINN2
 spice_ignore=true}
-C {simulator_commands_shown.sym} 250 -1200 0 0 {name=loopgainprobe
+C {simulator_commands_shown.sym} 510 -1200 0 0 {name=loopgainprobe
 simulator=ngspice
 only_toplevel=false
 value=".subckt loopgainprobe a b
@@ -656,31 +889,31 @@ Vnodebuffer b x 0
 .func tian_loop() \{1/(1/(2*(ac1.i(v.x999.Vi)*ac2.v(x999.x)-ac1.v(x999.x)*ac2.i(v.x999.Vi))+ac1.v(x999.x)+ac2.i(v.x999.Vi))-1)\}
 "
       }
-C {lab_pin.sym} 1450 -120 3 0 {name=p24 sig_type=std_logic lab=VSS
-}
-C {lab_pin.sym} 1360 -240 0 0 {name=p28 sig_type=std_logic lab=VINP3
-}
-C {lab_pin.sym} 1640 -220 2 0 {name=p29 sig_type=std_logic lab=OUT3
-}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 1480 -200 0 0 {name=x3
-}
-C {vdd.sym} 1450 -320 0 0 {name=l6 lab=VDD
-}
-C {lab_pin.sym} 1360 -200 0 0 {name=p30 sig_type=std_logic lab=I_B
-}
-C {vsource.sym} 1340 -510 0 0 {name=V5 value=\{vicm\} savecurrent=false
-}
-C {lab_pin.sym} 1340 -560 1 0 {name=p31 sig_type=std_logic lab=VINP3
-}
-C {lab_pin.sym} 1340 -460 3 0 {name=p32 sig_type=std_logic lab=VSS
-}
-C {capa.sym} 1600 -160 0 0 {name=C2
+C {lab_pin.sym} 1460 -120 3 0 {name=p24 sig_type=std_logic lab=VSS
+spice_ignore=true}
+C {lab_pin.sym} 1370 -240 0 0 {name=p28 sig_type=std_logic lab=VINP3
+spice_ignore=true}
+C {lab_pin.sym} 1650 -220 2 0 {name=p29 sig_type=std_logic lab=OUT3
+spice_ignore=true}
+C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 1490 -200 0 0 {name=x3
+spice_ignore=true}
+C {vdd.sym} 1460 -320 0 0 {name=l6 lab=VDD
+spice_ignore=true}
+C {lab_pin.sym} 1370 -200 0 0 {name=p30 sig_type=std_logic lab=I_B
+spice_ignore=true}
+C {vsource.sym} 1350 -510 0 0 {name=V5 value=\{vicm\} savecurrent=false
+spice_ignore=true}
+C {lab_pin.sym} 1350 -560 1 0 {name=p31 sig_type=std_logic lab=VINP3
+spice_ignore=true}
+C {lab_pin.sym} 1350 -460 3 0 {name=p32 sig_type=std_logic lab=VSS
+spice_ignore=true}
+C {capa.sym} 1610 -160 0 0 {name=C2
 m=1
 value=\{cl\}
 footprint=1206
 device="ceramic capacitor"
-}
-C {simulator_commands.sym} 1850 -430 0 0 {name=PSRR
+spice_ignore=true}
+C {simulator_commands.sym} 1870 -480 0 0 {name=PSRR
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -710,7 +943,7 @@ echo \\"=======================================================\\"
 plot psrr_curve xlog
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1850 -640 0 0 {name=DC_close_loop_op
+C {simulator_commands.sym} 1870 -680 0 0 {name=DC_close_loop_op
 simulator=ngspice
 only_toplevel=false 
 value=".op
@@ -738,11 +971,11 @@ echo \\"=======================================================\\"
 .endc
 "
 spice_ignore=true}
-C {vsource.sym} 880 -900 0 0 {name=V3 value=0 savecurrent=false}
-C {gnd.sym} 880 -850 0 0 {name=l7 lab=0}
-C {lab_pin.sym} 880 -940 1 0 {name=p3 sig_type=std_logic lab=VSS
+C {vsource.sym} 680 -870 0 0 {name=V3 value=0 savecurrent=false}
+C {gnd.sym} 680 -820 0 0 {name=l7 lab=0}
+C {lab_pin.sym} 680 -910 1 0 {name=p3 sig_type=std_logic lab=VSS
 }
-C {simulator_commands.sym} 1850 -240 0 0 {name=CMRR
+C {simulator_commands.sym} 1870 -280 0 0 {name=CMRR
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -773,7 +1006,7 @@ echo \\"=======================================================\\"
 plot cmrr_curve xlog
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1710 -640 0 0 {name=TRAN_large
+C {simulator_commands.sym} 1730 -680 0 0 {name=TRAN_large
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -786,17 +1019,17 @@ alter @v5[pulse] = [ 0.2 1.0 20n 1n 1n 1u 2.5u ]
 tran 0.2n 2.5u
 run
 
-let v_in  = v(vinp3)
-let v_out = v(out3)
+let v_inl  = v(vinp3)
+let v_outl = v(out3)
 
 * --- Rising Edge Analysis ---
 * Input 50% crossing (0.60 V)
-meas tran t_in_r50  when v_in=0.60 rise=1
+meas tran t_in_r50  when v_inl=0.60 rise=1
 
 * Output 10% (0.28 V), 50% (0.60 V), and 90% (0.92 V) crossings
-meas tran t_out_r10 when v_out=0.28 rise=1
-meas tran t_out_r50 when v_out=0.60 rise=1
-meas tran t_out_r90 when v_out=0.92 rise=1
+meas tran t_out_r10 when v_outl=0.28 rise=1
+meas tran t_out_r50 when v_outl=0.60 rise=1
+meas tran t_out_r90 when v_outl=0.92 rise=1
 
 * Compute Rise Time, Positive Slew Rate (SR+), and Propagation Delay (tpLH)
 let t_rise_ns = (t_out_r90 - t_out_r10) * 1e9
@@ -805,12 +1038,12 @@ let t_plh_ns  = (t_out_r50 - t_in_r50) * 1e9
 
 * --- Falling Edge Analysis ---
 * Input 50% crossing (0.60 V)
-meas tran t_in_f50  when v_in=0.60 fall=1
+meas tran t_in_f50  when v_inl=0.60 fall=1
 
 * Output 90% (0.92 V), 50% (0.60 V), and 10% (0.28 V) crossings
-meas tran t_out_f90 when v_out=0.92 fall=1
-meas tran t_out_f50 when v_out=0.60 fall=1
-meas tran t_out_f10 when v_out=0.28 fall=1
+meas tran t_out_f90 when v_outl=0.92 fall=1
+meas tran t_out_f50 when v_outl=0.60 fall=1
+meas tran t_out_f10 when v_outl=0.28 fall=1
 
 * Compute Fall Time, Negative Slew Rate (SR-), and Propagation Delay (tpHL)
 let t_fall_ns = (t_out_f10 - t_out_f90) * 1e9
@@ -818,7 +1051,7 @@ let sr_neg    = (0.92 - 0.28) / (t_out_f10 - t_out_f90) / 1e6
 let t_phl_ns  = (t_out_f50 - t_in_f50) * 1e9
 
 * Save output waveforms to the specified rawfile
-write ./result/tb_cg_ota_tran_large.raw v_in v_out
+write ./result/tb_cg_ota_tran_large.raw v_inl v_outl
 
 * Print execution summary
 echo \\"=======================================================\\"
@@ -835,10 +1068,10 @@ echo \\"=======================================================\\"
 * Reset v5 source back to clean DC operating point
 alter @v5[pulse] = [ 0.6 0.6 0 0 0 1u 2u ]
 
-plot v_out v_in
+plot v_outl v_inl
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1710 -440 0 0 {name=TRAN_small
+C {simulator_commands.sym} 1730 -480 0 0 {name=TRAN_small
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -852,34 +1085,34 @@ alter @v5[pulse] = [ 0.55 0.65 20n 1n 1n 500n 1.2u ]
 tran 0.1n 1.2u
 run
 
-let v_in  = v(vinp3)
-let v_out = v(out3)
+let v_ins  = v(vinp3)
+let v_outs = v(out3)
 
 * --- Small-Signal Delay and Rise Time ---
-meas tran t_in_s50  when v_in=0.60 rise=1
-meas tran t_out_s10 when v_out=0.56 rise=1
-meas tran t_out_s50 when v_out=0.60 rise=1
-meas tran t_out_s90 when v_out=0.64 rise=1
+meas tran t_in_s50  when v_ins=0.60 rise=1
+meas tran t_out_s10 when v_outs=0.56 rise=1
+meas tran t_out_s50 when v_outs=0.60 rise=1
+meas tran t_out_s90 when v_outs=0.64 rise=1
 
 let t_delay_ns = (t_out_s50 - t_in_s50) * 1e9
 let t_rise_ns  = (t_out_s90 - t_out_s10) * 1e9
 
 * --- Overshoot Percentage ---
-meas tran v_peak max v_out from=20n to=300n
+meas tran v_peak max v_outs from=20n to=300n
 let overshoot_pct = ((v_peak - 0.65) / 0.1) * 100
 
 * --- Settling Time Calculation ---
 * Target value = 0.65 V (Step amplitude = 100 mV)
 * 1% Band   : 0.65 V +/- 1 mV   -> 0.649 V to 0.651 V
 * 0.1% Band : 0.65 V +/- 0.1 mV -> 0.6499 V to 0.6501 V
-meas tran t_set1 when v_out=0.649 cross=last
+meas tran t_set1 when v_outs=0.649 cross=last
 let ts_1pct_ns = (t_set1 - 20n) * 1e9
 
-meas tran t_set01 when v_out=0.6499 cross=last
+meas tran t_set01 when v_outs=0.6499 cross=last
 let ts_01pct_ns = (t_set01 - 20n) * 1e9
 
 * Save output waveforms to the specified rawfile
-write ./result/tb_cg_ota_tran_small.raw v_in v_out
+write ./result/tb_cg_ota_tran_small.raw v_ins v_outs
 
 * Print execution summary
 echo \\"=======================================================\\"
@@ -896,62 +1129,90 @@ echo \\"=======================================================\\"
 * Reset v5 source back to clean DC operating point
 alter @v5[pulse] = [ 0.6 0.6 0 0 0 1u 2u ]
 
-plot v_out v_in
+plot v_outs v_ins
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1710 -240 0 0 {name="Monte_Carlo"
+C {simulator_commands.sym} 1730 -270 0 0 {name="Monte_Carlo"
 simulator=ngspice
 only_toplevel="false" 
-value=".control
-* 1. Clear previous simulation datasets and initialize result directory
+value="* ===============================================================
+* MONTE CARLO MISMATCH & PROCESS SIMULATION
+* Topology: Closed-Loop Unity-Gain Follower (x3)
+* PDK     : IHP SG13G2 (PSP103 via OSDI)
+* ===============================================================
+
+* Critical IHP PDK parameter switches to activate statistical variations
+.param mm_ok=1
+.param mc_ok=1
+.param temp=27
+
+.control
+* 1. Clear previous session datasets and prepare output directory
 destroy all
 save all
 shell mkdir -p result
-shell rm -f ./result/sim9_mc_data.txt
 
 echo \\"=======================================================\\"
-echo \\"   STARTING MONTE CARLO MISMATCH SIMULATION (100 RUNS) \\"
+echo \\"   STARTING MONTE CARLO SIMULATION (OTA FOLLOWER)      \\"
 echo \\"=======================================================\\"
 
-* 2. Iteration parameters and vector allocations
+* 2. Initialize iteration counter and dedicated scratch plot
 let mc_runs = 100
-let run_idx = 0
+let run = 0
 
+* Create a dedicated container plot to safely aggregate all run results
+set curplot = new
+set scratch = $curplot
+setplot $scratch
+
+* Pre-allocate vectors in the scratch plot
 let vos_vec = unitvec(mc_runs)
 let iq_vec  = unitvec(mc_runs)
 
-* Write table header to text file
-echo \\"Run_ID  Vos_mV      Iq_uA\\" >> ./result/sim9_mc_data.txt
+* Initialize summary text file header
+echo \\"Run_ID  Vos_mV      Iq_uA\\" >> ./result/tb_cg_ota_mc.txt
 
-* 3. Monte Carlo execution loop
-dowhile run_idx < mc_runs
-  * Reset SPICE engine to sample a new statistical mismatch seed
-  reset
-  
-  * Quiescent DC operating point (Vin = 0.6 V)
+* ===============================================================
+* 3. MONTE CARLO EXECUTION LOOP
+* ===============================================================
+dowhile run < mc_runs
+  set rnd_seed=$&run
+  * Execute DC operating point (evaluates new statistical sample)
   op
 
-  * Calculate Input Offset Voltage (mV) and Quiescent Current (uA)
-  * Note: Assumes VDD supply instance is named v2 (adjust to v_vdd if needed)
+  * Capture current loop index and temporary plot pointer
+  set run_idx = $&run
+  set dt = $curplot
+
+  * Calculate parameters inside the active op dataset ($dt)
+  setplot $dt
   let cur_vos = (v(vinp3) - v(out3)) * 1000
   let cur_iq  = -i(v2) * 1e6
 
-  * Store values into vector arrays
-  let vos_vec[run_idx] = cur_vos
-  let iq_vec[run_idx]  = cur_iq
-
-  * Append numerical data to text file
-  set s_idx = \\"$&run_idx\\"
+  * Lock values to shell variables while still in $dt plot context
   set s_vos = \\"$&cur_vos\\"
   set s_iq  = \\"$&cur_iq\\"
-  echo \\"$s_idx   $s_vos   $s_iq\\" >> ./result/sim9_mc_data.txt
 
-  let run_idx = run_idx + 1
+  * Switch context to scratch plot and store scalar values into arrays
+  setplot $scratch
+  let vos_vec[run] = \{$dt\}.cur_vos
+  let iq_vec[run]  = \{$dt\}.cur_iq
+
+  * Append individual iteration data to text log
+  set s_idx = \\"$&run\\"
+  echo \\"$s_idx   $s_vos   $s_iq\\" >> ./result/tb_cg_ota_mc.txt
+
+  * Return to run plot and clear circuit state for next sample
+  setplot $dt
+  reset
+
+  let run = run + 1
 end
 
-* =======================================================
-* 4. STATISTICAL DATA POST-PROCESSING
-* =======================================================
+* ===============================================================
+* 4. STATISTICAL POST-PROCESSING (IN SCRATCH PLOT)
+* ===============================================================
+setplot $scratch
 
 * A. Mean calculation (mu)
 let sum_vos = 0
@@ -966,29 +1227,39 @@ let mean_vos = sum_vos / mc_runs
 let mean_iq  = sum_iq  / mc_runs
 
 * B. Sample standard deviation calculation (sigma)
-let sum_sq_diff_vos = 0
-let sum_sq_diff_iq  = 0
+let sum_sq_vos = 0
+let sum_sq_iq  = 0
 let i = 0
 dowhile i < mc_runs
   let diff_vos = vos_vec[i] - mean_vos
   let diff_iq  = iq_vec[i]  - mean_iq
-  let sum_sq_diff_vos = sum_sq_diff_vos + (diff_vos * diff_vos)
-  let sum_sq_diff_iq  = sum_sq_diff_iq  + (diff_iq  * diff_iq)
+  let sum_sq_vos = sum_sq_vos + (diff_vos * diff_vos)
+  let sum_sq_iq  = sum_sq_iq  + (diff_iq  * diff_iq)
   let i = i + 1
 end
-let sigma_vos = sqrt(sum_sq_diff_vos / (mc_runs - 1))
-let sigma_iq  = sqrt(sum_sq_diff_iq  / (mc_runs - 1))
-
-* C. Extreme values and worst-case 6-sigma span
-meas dc max_vos max vos_vec
-meas dc min_vos min vos_vec
+let sigma_vos = sqrt(sum_sq_vos / (mc_runs - 1))
+let sigma_iq  = sqrt(sum_sq_iq  / (mc_runs - 1))
 let span_6sigma_vos = 6 * sigma_vos
 
-* =======================================================
+* C. Extreme values search across the allocated array
+let min_vos = vos_vec[0]
+let max_vos = vos_vec[0]
+let k = 1
+dowhile k < mc_runs
+  if vos_vec[k] < min_vos
+    let min_vos = vos_vec[k]
+  end
+  if vos_vec[k] > max_vos
+    let max_vos = vos_vec[k]
+  end
+  let k = k + 1
+end
+
+* ===============================================================
 * 5. STATISTICAL SUMMARY REPORT
-* =======================================================
+* ===============================================================
 echo \\"=======================================================\\"
-echo \\"       MONTE CARLO MISMATCH STATISTICAL RESULTS        \\"
+echo \\"       MONTE CARLO STATISTICAL ANALYSIS RESULTS        \\"
 echo \\"=======================================================\\"
 echo \\" Total Iterations (Runs)     : \\" $&mc_runs
 echo \\"-------------------------------------------------------\\"
@@ -1003,111 +1274,283 @@ echo \\" TOTAL QUIESCENT CURRENT (Iq) DISTRIBUTION:\\"
 echo \\"   - Mean Quiescent Current  : \\" $&mean_iq \\" uA\\"
 echo \\"   - Std Deviation (sigma)   : \\" $&sigma_iq \\" uA\\"
 echo \\"=======================================================\\"
-echo \\" Raw numerical data saved to: ./result/sim9_mc_data.txt\\"
+echo \\" Numerical dataset exported to: ./result/tb_cg_ota_mc.txt\\"
 echo \\"=======================================================\\"
 
-* Save full vectors to binary rawfile
-write ./result/tb_cg_ota_monte-carlo.raw vos_vec iq_vec
+* Save aggregated scratch vectors into rawfile and CSV format
+write ./result/tb_cg_ota_mc.raw \{$scratch\}.vos_vec \{$scratch\}.iq_vec
+wrdata ./result/tb_cg_ota_mc.csv \{$scratch\}.vos_vec \{$scratch\}.iq_vec
+
 .endc"
 spice_ignore=true}
-C {simulator_commands.sym} 1110 -110 0 0 {name=PVT
+C {simulator_commands.sym} 1110 -190 0 0 {name=PVT
 simulator=ngspice
 only_toplevel=false 
-value=".control
-save all
+value="* ===============================================================
+* SIMULATION 8: MULTI-CORNER PVT STABILITY ANALYSIS (TIAN PROBE)
+* Topology : Folded-Cascode OTA with Class-AB Output Stage (x2)
+* PDK      : IHP SG13CMOS5L (130nm BiCMOS)
+* ===============================================================
+
+.control
+* 1. Clear previous simulation memory and initialize output directory
+destroy all
 shell mkdir -p result
 
-* Tian probe idled
+* 2. Active process corner configuration (Update both per corner run)
+*    Available corners: \\"tt\\", \\"ss\\", \\"ff\\", \\"sf\\", \\"fs\\"
+set corner_name = \\"fs\\"
+set raw_file    = \\"./result/tb_cg_ota_pvt_fs.raw\\"
+set txt_file    = \\"./result/tb_cg_ota_pvt.txt\\"
+
+* 3. Initialize table header safely without ngspice redirection truncation
+*    Uses python to create the file and header ONLY if it does not exist yet
+shell python3 -c 'import os; f=\\"./result/tb_cg_ota_pvt_all.txt\\"; os.path.exists(f) or open(f,\\"w\\").write(\\"==========================================================================================\\\\n Corner | Temp(C) | VDD(V) | Vicm(V) | Av0(dB)  | Av0(V/V)  | UGBW(MHz) | PM(deg)  | GM(dB)   \\\\n==========================================================================================\\\\n\\")'
+
+* Enable sequential dataset appending for the per-corner rawfile
+set appendwrite
+
+echo \\"==========================================================================================\\"
+echo \\" STARTING PVT STABILITY SWEEP FOR CORNER: \\" $corner_name
+echo \\"==========================================================================================\\"
+
+* 4. Outer Loop: Operational Temperature Sweep (-40 C, 27 C, 125 C)
+foreach c_temp -40 27 125
+
+  * Update internal SPICE simulator temperature options
+  set temper = $c_temp
+  option temp = $c_temp
+
+  * 5. Inner Loop: Supply Voltage Sweep (VDD +/- 10%: 1 V, 1.08 V, 1.20 V, 1.32 V. 1.45 V, 1.5 V)
+  foreach v_vdd 1 1.08 1.20 1.32 1.45 1.5
+
+    * Calculate symmetrical mid-rail common-mode reference (Vicm = VDD / 2)
+    let c_vicm = $v_vdd / 2
+
+    * Dynamically alter DC supply and common-mode input bias voltages
+    alter @v2[dc] = $v_vdd
+    alter @v6[dc] = $&c_vicm
+
+    * -----------------------------------------------------------
+    * TIAN CYCLE 1: VOLTAGE INJECTION (V-test)
+    * -----------------------------------------------------------
+    alter i.x999.ii acmag=0
+    alter v.x999.vi acmag=1
+    ac dec 30 1 10G
+    set plot_v = $curplot
+
+    * -----------------------------------------------------------
+    * TIAN CYCLE 2: CURRENT INJECTION (I-test)
+    * -----------------------------------------------------------
+    alter i.x999.ii acmag=1
+    alter v.x999.vi acmag=0
+    ac dec 30 1 10G
+    set plot_i = $curplot
+
+    * -----------------------------------------------------------
+    * DYNAMIC TIAN RECONSTRUCTION & STABILITY EXTRACTION
+    * -----------------------------------------------------------
+    setplot $plot_v
+
+    * Retrieve nodal voltages and branch currents from matched AC cycles
+    let v1_x = \{$plot_v\}.v(x999.x)
+    let i1_b = \{$plot_v\}.v.x999.vi#branch
+    let v2_x = \{$plot_i\}.v(x999.x)
+    let i2_b = \{$plot_i\}.v.x999.vi#branch
+
+    * General bilateral Tian determinant formula: D = 2*(I1*V2 - V1*I2) + V1 + I2
+    let d_tian = 2 * (i1_b * v2_x - v1_x * i2_b) + v1_x + i2_b
+    let t_gain = 1 / (1 - 1 / d_tian)
+
+    * Extract real scalar vectors to avoid complex data rectification in raw files
+    let loop_magnitude = real(db(t_gain))
+    let loop_phase = real(180 * cph(t_gain) / pi) + 180
+
+    * Extract key stability figures of merit
+    meas ac pvt_gain find loop_magnitude at=10
+    let pvt_gain_lin = 10^(pvt_gain / 20)
+
+    meas ac pvt_ugbw when loop_magnitude=0
+    meas ac pvt_pm_raw find loop_phase when loop_magnitude=0
+    let pvt_pm = pvt_pm_raw - 180
+
+    * Gain Margin evaluated at phase crossover (0 degrees)
+    meas ac pvt_gm_loss find loop_magnitude when loop_phase=180
+    let pvt_gm = -pvt_gm_loss
+
+    let pvt_ugbw_mhz = pvt_ugbw / 1e6
+
+    * Print current iteration summary to console
+    echo \\" [\\" $corner_name \\"] T=\\" $c_temp \\"C | VDD=\\" $v_vdd \\"V | Av0=\\" $&pvt_gain \\"dB | UGBW=\\" $&pvt_ugbw_mhz \\"MHz | PM=\\" $&pvt_pm \\"deg | GM=\\" $&pvt_gm \\"dB\\"
+
+    * -----------------------------------------------------------
+    * SAFE TABLE DATA APPENDING
+    * -----------------------------------------------------------
+    * Lock numerical values to shell variables before writing
+    set s_vicm     = \\"$&c_vicm\\"
+    set s_gain     = \\"$&pvt_gain\\"
+    set s_gain_lin = \\"$&pvt_gain_lin\\"
+    set s_ugbw     = \\"$&pvt_ugbw_mhz\\"
+    set s_pm       = \\"$&pvt_pm\\"
+    set s_gm       = \\"$&pvt_gm\\"
+
+    * Append row cleanly using a single consolidated string
+    echo \\" $corner_name    | $c_temp     | $v_vdd    | $s_vicm     | $s_gain   | $s_gain_lin   | $s_ugbw     | $s_pm    | $s_gm\\" >> $txt_file
+
+    * Export Bode curves to dedicated per-corner rawfile
+    write $raw_file loop_magnitude loop_phase
+    write ./result/tb_cg_ota_pvt_all.raw loop_magnitude loop_phase
+  end
+end
+
+* 6. Restore Tian probe sources, supply voltages, and simulator options to nominal state
 alter i.x999.ii acmag=0
 alter v.x999.vi acmag=0
+alter @v2[dc] = 1.20
+alter @v6[dc] = 0.60
+set temper = 27
+option temp = 27
 
-* Add AC 1 to Vicm
-alter @v6[acmag]=1
-
-* Noise simulation
-noise v(out2) v6 dec 20 10 100MEG
-
-* Return to initial condition
-alter @v6[acmag]=0
-
-setplot noise1
-
-* Parameters #1
-let inoise_total_uv = noise2.inoise_total * 1e6
-let onoise_total_uv = noise2.onoise_total * 1e6
-let irn_nv = noise1.inoise_spectrum * 1e9
-let orn_nv = noise1.onoise_spectrum * 1e9
-
-* IRN extraction at certain frequencies
-let irn_10 = irn_nv[0]
-let irn_100 = irn_nv[20]
-let irn_1k = irn_nv[40]
-let irn_10k = irn_nv[60]
-let irn_100k = irn_nv[80]
-let irn_1meg = irn_nv[100]
-* meas noise irn_10 find irn_nv at=10
-* meas noise irn_100 find irn_nv at=100
-* meas noise irn_1k find irn_nv at=1k
-* meas noise irn_10k find irn_nv at=10k
-* meas noise irn_100k find irn_nv at=100k
-* meas noise irn_1meg find irn_nv at=1MEG
-
-write ./result/tb_cg_ota_noise.raw irn_nv orn_nv inoise_spectrum onoise_spectrum
-
-echo \\"=======================================================\\"
-echo \\" Total Output Noise (10 Hz - 100 MHz): \\" $&onoise_total_uv \\" uV_rms\\"
-echo \\" Total Input Noise (10 Hz - 100 MHz): \\" $&inoise_total_uv \\" uV_rms\\"
-echo \\"-------------------------------------------------------\\"
-echo \\" IRN @ 10 Hz (Flicker Noise): \\" $&irn_10 \\" nV/sqrt(Hz)\\"
-echo \\" IRN @ 100 Hz: \\" $&irn_100 \\" nV/sqrt(Hz)\\"
-echo \\" IRN @ 1 kHz: \\" $&irn_1k \\" nV/sqrt(Hz)\\"
-echo \\" IRN @ 10 kHz: \\" $&irn_10k \\" nV/sqrt(Hz)\\"
-echo \\" IRN @ 100 kHz: \\" $&irn_100k \\" nV/sqrt(Hz)\\"
-echo \\" IRN @ 1 MHz (Thermal Noise Floor): \\" $&irn_1meg \\" nV/sqrt(Hz)\\"
-echo \\"=======================================================\\"
-
-plot irn_nv xlog
-
+echo \\"==========================================================================================\\"
+echo \\" Corner \\" $corner_name \\" completed and appended to \\" $txt_file
+echo \\" Bode curves saved to \\" $raw_file
+echo \\"==========================================================================================\\"
 .endc
 "
 spice_ignore=true}
 C {launcher.sym} -250 -260 0 0 {name=h7
 descr=Plot_PVT
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
+tclcommand="set all_raw [file join $netlist_dir result tb_cg_ota_pvt_all.raw]
+if \{[file exists $all_raw]\} \{
+    xschem raw_read $all_raw ac
+    puts \\"Successfully loaded all PVT graphs\\"
 \} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
+    puts \\"$all_raw not exist!\\"
 \}"}
 C {launcher.sym} -250 -160 0 0 {name=h9
 descr=Plot_Tran_Small
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_tran_small.raw] tran"}
 C {launcher.sym} -250 -120 0 0 {name=h11
 descr=Plot_CMRR
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_cmrr.raw]"}
 C {launcher.sym} -250 -200 0 0 {name=h12
 descr=Plot_Tran_Large
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
-if \{[file exists $raw_path]\} \{
-    xschem annotate_op $raw_path
-\} else \{
-    puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
-\}"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_tran_large.raw]"}
 C {launcher.sym} -250 0 0 0 {name=h13
 descr=Plot_Monte_Carlo
-tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_op.raw]
+tclcommand="set sim_dir [file join $netlist_dir result]
+exec python3 [file join $sim_dir plot_mc.py] &"}
+C {simulator_commands.sym} 1870 -100 0 0 {name=ICMR
+simulator=ngspice
+only_toplevel="false" 
+value=".control
+destroy all
+save all
+shell mkdir -p result
+
+alter @v5[acmag] = 0
+
+dc v5 0 1.2 2m
+
+let v_in  = v(vinp3)
+let v_out = v(out3)
+
+let track_error_mv = abs(v_out - v_in) * 1000
+
+let buffer_gain = deriv(v_out)
+
+* Extract linear ICMR boundary points
+* Threshold set at buffer gain > 0.98 (2% gain error margin)
+meas dc icmr_min when buffer_gain=0.98 rise=1
+meas dc icmr_max when buffer_gain=0.98 fall=1
+let icmr_span = icmr_max - icmr_min
+
+write ./result/tb_cg_ota_icmr.raw v_in v_out buffer_gain track_error_mv
+
+* Print summary report to ngspice terminal console
+echo \\"=======================================================\\"
+echo \\"       INPUT COMMON-MODE RANGE (ICMR) RESULTS          \\"
+echo \\"=======================================================\\"
+echo \\"  Lower ICMR Bound (Vmin, Gain > 0.98) : \\" $&icmr_min \\" V\\"
+echo \\"  Upper ICMR Bound (Vmax, Gain > 0.98) : \\" $&icmr_max \\" V\\"
+echo \\"  Total Linear ICMR Span               : \\" $&icmr_span \\" V\\"
+echo \\"=======================================================\\"
+
+* Display transfer characteristics and tracking performance curves
+plot v_out vs v_in
+plot buffer_gain vs v_in
+plot track_error_mv vs v_in
+
+.endc"
+spice_ignore=true}
+C {launcher.sym} -250 -520 0 0 {name=h14
+descr=Op_Close_Loop
+tclcommand="set raw_path [file join $netlist_dir result tb_cg_ota_dc-close-op.raw]
 if \{[file exists $raw_path]\} \{
     xschem annotate_op $raw_path
 \} else \{
     puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
 \}"}
+C {simulator_commands_shown.sym} 1080 -990 0 0 {name=Libs_Ngspice_Mismatch_Monte_Carlo
+simulator=ngspice
+only_toplevel=false
+value="tcleval(
+.lib $::MODELS_NGSPICE/cornerMOSlv.lib mos_tt
+.lib $::MODELS_NGSPICE/cornerMOShv.lib mos_tt
+.lib $::MODELS_NGSPICE/cornerRES.lib res_typ_mismatch
+.lib $::MODELS_NGSPICE/cornerRES.lib res_stat
+.lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
+.lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_mismatch
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_stat
+)"
+      spice_ignore=true}
+C {simulator_commands.sym} -290 -1150 0 0 {name=Worst-Case_SS
+simulator=ngspice
+only_toplevel=false 
+value="tcleval(
+.lib $::MODELS_NGSPICE/cornerMOSlv.lib mos_ss
+.lib $::MODELS_NGSPICE/cornerMOShv.lib mos_ss
+.lib $::MODELS_NGSPICE/cornerRES.lib res_typ
+.lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
+.lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
+)"
+spice_ignore=true}
+C {simulator_commands.sym} -150 -1150 0 0 {name=Best-Case_FF
+simulator=ngspice
+only_toplevel=false 
+value="tcleval(
+.lib $::MODELS_NGSPICE/cornerMOSlv.lib mos_ff
+.lib $::MODELS_NGSPICE/cornerMOShv.lib mos_ff
+.lib $::MODELS_NGSPICE/cornerRES.lib res_typ
+.lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
+.lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
+)"
+spice_ignore=true}
+C {simulator_commands.sym} -10 -1150 0 0 {name=Slow-n-Fast-p_SF
+simulator=ngspice
+only_toplevel=false 
+value="tcleval(
+.lib $::MODELS_NGSPICE/cornerMOSlv.lib mos_sf
+.lib $::MODELS_NGSPICE/cornerMOShv.lib mos_sf
+.lib $::MODELS_NGSPICE/cornerRES.lib res_typ
+.lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
+.lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
+)
+"
+spice_ignore=true}
+C {simulator_commands.sym} 150 -1150 0 0 {name=Fast-n-Slow-p_FS
+simulator=ngspice
+only_toplevel=false 
+value="tcleval(
+.lib $::MODELS_NGSPICE/cornerMOSlv.lib mos_fs
+.lib $::MODELS_NGSPICE/cornerMOShv.lib mos_fs
+.lib $::MODELS_NGSPICE/cornerRES.lib res_typ
+.lib $::MODELS_NGSPICE/cornerDIO.lib dio_tt
+.lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
+.lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
+)"
+}
