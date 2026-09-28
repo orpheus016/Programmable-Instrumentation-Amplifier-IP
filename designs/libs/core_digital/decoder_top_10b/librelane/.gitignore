@@ -9,7 +9,6 @@ designs/libs/core_digital/dec2to4/lay/
 designs/libs/core_digital/dec2to4/lvs/
 designs/libs/core_digital/dec2to4/notes/
 designs/libs/core_digital/dec2to4/librelane/
-designs/libs/core_digital/decoder_top_10b/librelane/runs/
 
 # C extensions
 *.so

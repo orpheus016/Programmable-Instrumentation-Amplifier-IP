@@ -29,18 +29,20 @@ N 110 40 150 40 {lab=Y0}
 N 110 120 150 120 {lab=Y1}
 N 110 200 150 200 {lab=Y2}
 N 110 280 150 280 {lab=Y3}
-C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -210 20 0 0 {name=x1 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -130 60 0 0 {name=x2 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -210 20 0 0 {name=xinv1 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} -130 60 0 0 {name=xinv2 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
 C {ipin.sym} -290 20 0 0 {name=p1 lab=A0}
 C {ipin.sym} -290 60 0 0 {name=p2 lab=A1}
 C {opin.sym} 150 40 0 0 {name=p3 lab=Y0}
 C {opin.sym} 150 120 0 0 {name=p4 lab=Y1}
 C {opin.sym} 150 200 0 0 {name=p5 lab=Y2}
 C {opin.sym} 150 280 0 0 {name=p6 lab=Y3}
-C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 40 0 0 {name=x11 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 120 0 0 {name=x3 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 200 0 0 {name=x4 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
-C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 280 0 0 {name=x5 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 40 0 0 {name=xand1 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 120 0 0 {name=xand2 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 200 0 0 {name=xand3 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
+C {sg13cmos5l_stdcells/sg13cmos5l_and2_1.sym} 50 280 0 0 {name=xand4 VDD=VDD VSS=VSS prefix=sg13cmos5l_ }
 C {iopin.sym} 260 20 0 0 {name=p7 lab=VDD}
 C {iopin.sym} 260 50 0 0 {name=p8 lab=VSS}
 C {title.sym} -420 350 0 0 {name=l1 author="Rafi Ananta Alden"}
+C {lab_pin.sym} 260 20 0 0 {name=p9 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 260 50 0 0 {name=p10 sig_type=std_logic lab=VSS}
