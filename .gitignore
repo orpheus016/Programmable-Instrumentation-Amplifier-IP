@@ -229,5 +229,10 @@ __marimo__/
 .venv
 .ipynb_checkpoints
 
+<<<<<<< HEAD
 docs/
 designs/libs/core_digital/dec2to4/backups/dec2to4_backup_2026-09-23_09h57m25_482.gds
+=======
+# RAW files
+result
+>>>>>>> c2f89556ad851a2d813bc0964c8fc1e69827baba
