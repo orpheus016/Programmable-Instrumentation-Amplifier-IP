@@ -34,7 +34,7 @@ L 4 1700 30 1700 830 {}
 L 4 1700 830 1700 1250 {}
 L 4 1700 1250 1700 1620 {}
 L 4 650 -1010 880 -1010 {}
-L 4 880 -1010 880 -760 {}
+L 4 990 -1010 990 -760 {}
 L 4 2060 -1280 2060 -760 {}
 L 4 340 830 340 1620 {}
 L 4 1000 830 1000 1620 {}
@@ -42,6 +42,7 @@ L 4 340 830 1000 830 {}
 L 4 1000 460 1000 830 {}
 L 4 1000 460 1700 460 {}
 L 4 1000 1260 1700 1260 {}
+L 4 880 -1010 990 -1010 {}
 B 2 -300 100 320 420 {flags=graph
 y1=-0.1
 y2=1.5
@@ -50,8 +51,8 @@ ypos2=2
 divy=10
 subdivy=1
 unity="V"
-x1=-2
-x2=2
+x1=-0.7
+x2=0.7
 divx=20
 subdivx=1
 xlabmag=1.25
@@ -66,14 +67,14 @@ logy=0
 }
 B 2 -300 470 320 790 {flags=graph
 y1=0
-y2=1.5k
+y2=1.4k
 ypos1=-0.1
 ypos2=1
 divy=5
 subdivy=1
 unity=1
-x1=-0.8
-x2=0.8
+x1=-0.6
+x2=0.6
 divx=20
 subdivx=1
 xlabmag=1.5
@@ -87,15 +88,15 @@ logx=0
 logy=0
 }
 B 2 -300 900 320 1220 {flags=graph
-y1=-0.1
-y2=1.6
+y1=-0.05
+y2=1.8
 ypos1="0"
 ypos2=1
 divy=8
 subdivy=1
 unity=A
-x1=-60m
-x2=60m
+x1=-0.1
+x2=0.1
 divx=6
 subdivx=1
 xlabmag=1.0
@@ -111,10 +112,10 @@ logy=0
 }
 B 2 -300 1250 320 1570 {flags=graph
 y1=0
-y2=145
+y2=120
 ypos1=0
 ypos2=2
-divy=25
+divy=20
 subdivy=1
 unity=1
 x1=-60m
@@ -132,7 +133,7 @@ logx=0
 logy=0
 }
 B 2 360 100 980 420 {flags=graph
-y1=-200
+y1=-180
 y2=190
 ypos1=0
 ypos2=2
@@ -140,7 +141,7 @@ divy=20
 subdivy=1
 unity="dB"
 x1=0
-x2=10
+x2=8
 divx=20
 subdivx=1
 xlabmag=1.25
@@ -159,15 +160,15 @@ y1=0
 y2=5500
 ypos1=0
 ypos2=1
-divy=10
+divy=20
 subdivy=1
 unity="V/rtHz"
-x1=1
+x1=0
 x2=8
 divx=20
 subdivx=1
 xlabmag=1
-ylabmag=1.2
+ylabmag=1.5
 legendmag=1.0
 node="irn_nv"
 color="4"
@@ -178,7 +179,7 @@ logy=0
 }
 B 2 1030 100 1650 420 {flags=graph
 y1=-200
-y2=400
+y2=380
 ypos1=0
 ypos2=1
 divy=20
@@ -202,14 +203,14 @@ logy=0
 }
 B 2 360 880 980 1200 {flags="graphs"
 y1=0
-y2=1.1
+y2=1.2
 ypos1=0
 ypos2=2
 divy=10
 subdivy=1
 unity="V V"
 x1=0
-x2=2u
+x2=3u
 divx=5
 subdivx=1
 xlabmag=1
@@ -268,15 +269,15 @@ logx=1
 logy=0
 }
 B 2 360 1240 980 1560 {flags=graph
-y1=0.54
-y2=0.66
+y1=0.55
+y2=0.7
 ypos1=0
 ypos2=2
 divy=15
 subdivy=1
 unity="V"
 x1=0
-x2=1.2u
+x2=1.5u
 divx=6
 subdivx=1
 xlabmag=1
@@ -377,7 +378,7 @@ T {All .raw files
 are saved on
 ./simulations/result} -180 -590 0 0 0.2 0.2 {}
 T {CLOSE-LOOP CIRCUIT} 1320 -740 0 0 0.4 0.4 {}
-T {Change general simulation parameters here!} 530 -1040 0 0 0.3 0.3 {}
+T {Change general simulation parameters here!} 410 -1260 0 0 0.3 0.3 {}
 T {POWER & BIASING} 690 -990 0 0 0.3 0.3 {}
 T {DC Swing Plots} -80 50 0 0 0.5 0.5 {}
 T {Activate C1 and v1, v4, and all of its pins for
@@ -474,37 +475,37 @@ spice_ignore=true}
 N 1000 -520 1020 -520 {lab=VINN2
 spice_ignore=true}
 N 1460 -130 1460 -120 {lab=VSS
-spice_ignore=true}
+}
 N 1610 -220 1650 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1460 -320 1460 -290 {lab=VDD
-spice_ignore=true}
+}
 N 1370 -240 1390 -240 {lab=VINP3
-spice_ignore=true}
+}
 N 1370 -200 1390 -200 {lab=I_B
-spice_ignore=true}
+}
 N 1350 -560 1350 -540 {lab=VINP3
-spice_ignore=true}
+}
 N 1350 -480 1350 -460 {lab=VSS
-spice_ignore=true}
+}
 N 1380 -220 1390 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1380 -360 1380 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1380 -360 1570 -360 {lab=OUT3
-spice_ignore=true}
+}
 N 1570 -360 1570 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1560 -220 1570 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1610 -220 1610 -190 {lab=OUT3
-spice_ignore=true}
+}
 N 1570 -220 1610 -220 {lab=OUT3
-spice_ignore=true}
+}
 N 1460 -130 1610 -130 {lab=VSS
-spice_ignore=true}
+}
 N 1460 -150 1460 -130 {lab=VSS
-spice_ignore=true}
+}
 N 740 -840 740 -820 {lab=0}
 N 680 -840 680 -820 {lab=0}
 N 680 -910 680 -900 {lab=VSS}
@@ -514,6 +515,8 @@ N 50 -540 50 -510 {lab=VINN1
 spice_ignore=true}
 N 50 -570 50 -540 {lab=VINN1
 spice_ignore=true}
+N 910 -950 910 -920 {lab=OUT3}
+N 910 -860 910 -830 {lab=0}
 C {lab_pin.sym} 80 -230 0 0 {name=p2 sig_type=std_logic lab=VINN1
 spice_ignore=true}
 C {lab_pin.sym} 170 -130 3 0 {name=p5 sig_type=std_logic lab=VSS
@@ -532,7 +535,7 @@ if \{[file exists $raw_path]\} \{
 \}"}
 C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 200 -210 0 0 {name=x1
 spice_ignore=true}
-C {simulator_commands_shown.sym} 890 -990 0 0 {name=General_Params
+C {simulator_commands_shown.sym} 650 -1170 0 0 {name=General_Params
 simulator=ngspice
 only_toplevel=false
 value=".param temp=27
@@ -638,7 +641,7 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
 )"
-      spice_ignore=true}
+      }
 C {launcher.sym} -250 -340 0 0 {name=h4
 descr=Plot_AC
 tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_ac.raw]"}
@@ -651,7 +654,7 @@ tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_icmr.raw]"}
 C {launcher.sym} -250 -40 0 0 {name=h10
 descr=Plot_PSRR
 tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_psrr.raw]"}
-C {simulator_commands.sym} 390 -450 0 0 {name=DC_Swing
+C {simulator_commands.sym} 380 -460 0 0 {name=DC_Swing
 simulator=ngspice
 only_toplevel="false" 
 value=".control
@@ -802,7 +805,9 @@ echo \\" Phase Margin (PM): \\" $&pm \\" deg (Ideally, > 60 deg)\\"
 echo \\" Gain Margin (GM): \\" $&gm_db \\" dB\\"
 echo \\" Phase Crossover (f_180): \\" $&f_180 \\" Hz\\"
 echo \\" GBW Product (PM): \\" $&gbw_calc \\" Hz\\"
-echo \\"=======================================================\\"
+
+
+plot re(loop_mag) re(loop_ph) xlog
 
 .endc"
 spice_ignore=true}
@@ -877,7 +882,7 @@ C {lab_pin.sym} 820 -520 0 0 {name=p19 sig_type=std_logic lab=OUT2
 spice_ignore=true}
 C {lab_pin.sym} 1020 -520 2 0 {name=p22 sig_type=std_logic lab=VINN2
 spice_ignore=true}
-C {simulator_commands_shown.sym} 510 -1200 0 0 {name=loopgainprobe
+C {simulator_commands_shown.sym} 880 -1200 0 0 {name=loopgainprobe
 simulator=ngspice
 only_toplevel=false
 value=".subckt loopgainprobe a b
@@ -890,29 +895,29 @@ Vnodebuffer b x 0
 "
       }
 C {lab_pin.sym} 1460 -120 3 0 {name=p24 sig_type=std_logic lab=VSS
-spice_ignore=true}
+}
 C {lab_pin.sym} 1370 -240 0 0 {name=p28 sig_type=std_logic lab=VINP3
-spice_ignore=true}
+}
 C {lab_pin.sym} 1650 -220 2 0 {name=p29 sig_type=std_logic lab=OUT3
-spice_ignore=true}
+}
 C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 1490 -200 0 0 {name=x3
-spice_ignore=true}
+}
 C {vdd.sym} 1460 -320 0 0 {name=l6 lab=VDD
-spice_ignore=true}
+}
 C {lab_pin.sym} 1370 -200 0 0 {name=p30 sig_type=std_logic lab=I_B
-spice_ignore=true}
+}
 C {vsource.sym} 1350 -510 0 0 {name=V5 value=\{vicm\} savecurrent=false
-spice_ignore=true}
+}
 C {lab_pin.sym} 1350 -560 1 0 {name=p31 sig_type=std_logic lab=VINP3
-spice_ignore=true}
+}
 C {lab_pin.sym} 1350 -460 3 0 {name=p32 sig_type=std_logic lab=VSS
-spice_ignore=true}
+}
 C {capa.sym} 1610 -160 0 0 {name=C2
 m=1
 value=\{cl\}
 footprint=1206
 device="ceramic capacitor"
-spice_ignore=true}
+}
 C {simulator_commands.sym} 1870 -480 0 0 {name=PSRR
 simulator=ngspice
 only_toplevel="false" 
@@ -1070,7 +1075,7 @@ alter @v5[pulse] = [ 0.6 0.6 0 0 0 1u 2u ]
 
 plot v_outl v_inl
 .endc"
-spice_ignore=true}
+}
 C {simulator_commands.sym} 1730 -480 0 0 {name=TRAN_small
 simulator=ngspice
 only_toplevel="false" 
@@ -1435,7 +1440,7 @@ descr=Plot_CMRR
 tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_cmrr.raw]"}
 C {launcher.sym} -250 -200 0 0 {name=h12
 descr=Plot_Tran_Large
-tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_tran_large.raw]"}
+tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_tran_large.raw] tran"}
 C {launcher.sym} -250 0 0 0 {name=h13
 descr=Plot_Monte_Carlo
 tclcommand="set sim_dir [file join $netlist_dir result]
@@ -1553,4 +1558,12 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
 )"
+spice_ignore=true}
+C {res.sym} 910 -890 0 0 {name=R1
+value=2k
+footprint=1206
+device=resistor
+m=1}
+C {lab_pin.sym} 910 -950 2 0 {name=p23 sig_type=std_logic lab=OUT3
 }
+C {gnd.sym} 910 -830 0 0 {name=l8 lab=0}

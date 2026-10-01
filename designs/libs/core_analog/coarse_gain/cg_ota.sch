@@ -486,7 +486,7 @@ spiceprefix=X
 }
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} -10 220 0 0 {name=M_mn4
 l=2u
-w=2.82u
+w=3.48u
 ng=1
 m=1
 mm_ok=1
@@ -534,7 +534,7 @@ value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*( @w - 0.04e
 }
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} -220 -120 0 0 {name=M_mp4
 l=2u
-w=3.73u
+w=4.60u
 ng=1
 m=1
 mm_ok=1
@@ -561,7 +561,7 @@ spiceprefix=X
 }
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} -100 220 0 0 {name=M_mn3
 l=2u
-w=1.41u
+w=1.74u
 ng=1
 m=1
 mm_ok=1
@@ -591,7 +591,7 @@ C {lab_pin.sym} 120 130 1 0 {name=p14 sig_type=std_logic lab=V_ctrln}
 C {lab_pin.sym} 220 -90 2 0 {name=p15 sig_type=std_logic lab=V_btail}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} 880 -120 0 0 {name=M_mp5
 l=2u
-w=7.46u
+w=9.2u
 ng=1
 m=1
 mm_ok=1
