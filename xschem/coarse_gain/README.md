@@ -1,13 +1,17 @@
 # Coarse-Gain Stage
 ## Overview & Current Implementation
 This block focuses on coarse-gain configuration (Stage 2) of the PGIA. It utilized an OTA with two stages: PMOS folded cascode with fully-differential input and single-ended output and common-source class AB. The whole gain network is a 4-bit digitally switched logarithmic feedback-resistor string.
-
-Currently, the implementation is on OTA level and each transistor hasn't yet reach saturation regions. The OTA has been fully designed, but the problem resides on the bias generator.
 ## Topology/Architecture
-Coarse-gain stage:
-<img width="709" height="202" alt="CHIP 2026-Coarse-Gain-Network drawio" src="https://github.com/user-attachments/assets/3c6dbf6e-b5e5-4117-a7b0-f777c9dbc879" />
-Coarse-gain OTA:
-<img width="971" height="641" alt="CHIP 2026-Coarse-Gain_OTA drawio" src="https://github.com/user-attachments/assets/1e26a6d9-e87e-402e-9870-a410c97c02b0" />
+### Coarse-Gain Network Stage
+- A 4-bit switched logarithmic feedback-resistor strings that are controlled with one-hot encoded decoders is used
+- Transmission gates with various line width sizing in order to provide the right feedback resistance are used
+- Six `rppd` resistors with `w=2um` and 11 `rhigh` resistors are used
+- The OTA is biased internally with an assumption of 1 uA based on the harness chip
+The reference circuit:
+
+The implemented network:
+
+
 There is a possibility for utilizing 5t OTA from input stage (Stage 1) or fine-gain stage (Stage 3)
 ## Pin Description
 | Pin Name | Type | Description |
