@@ -381,12 +381,14 @@ T {CLOSE-LOOP CIRCUIT} 1320 -740 0 0 0.4 0.4 {}
 T {Change general simulation parameters here!} 410 -1260 0 0 0.3 0.3 {}
 T {POWER & BIASING} 690 -990 0 0 0.3 0.3 {}
 T {DC Swing Plots} -80 50 0 0 0.5 0.5 {}
-T {Activate C1 and v1, v4, and all of its pins for
+T {Enable x1 and all of its pins
+
+Activate C1, v1, and v4 with all of its pins for
 dc swing and dc open-loop operating simulations.
 
 Enable all of vsource, C1, and all of its pins
 for widespread AB simulation.} 110 -700 0 0 0.2 0.2 {}
-T {Enable all vsources, C3, probe, and all of their pins
+T {Enable all vsources, C3, probe, x2, and all of their pins
 for each simulation.
 
 For PVT scripts, parameters must be changed per corner simulation.
@@ -445,23 +447,23 @@ spice_ignore=true}
 N 160 -540 160 -520 {lab=OUT1
 spice_ignore=true}
 N 850 -200 850 -170 {lab=VSS
-spice_ignore=true}
+}
 N 950 -270 970 -270 {lab=OUT2
-spice_ignore=true}
+}
 N 850 -370 850 -340 {lab=VDD
-spice_ignore=true}
+}
 N 760 -290 780 -290 {lab=VINP2
-spice_ignore=true}
+}
 N 760 -250 780 -250 {lab=I_B
-spice_ignore=true}
+}
 N 630 -570 630 -550 {lab=VINP2
-spice_ignore=true}
+}
 N 630 -490 630 -470 {lab=VSS
-spice_ignore=true}
+}
 N 710 -490 710 -480 {lab=VSS
-spice_ignore=true}
+}
 N 710 -570 710 -550 {lab=OUT2
-spice_ignore=true}
+}
 N 50 -650 50 -630 {lab=VINP1
 spice_ignore=true}
 N 250 -550 250 -530 {lab=OUT1
@@ -469,43 +471,43 @@ spice_ignore=true}
 N 250 -470 250 -440 {lab=VSS
 spice_ignore=true}
 N 760 -270 780 -270 {lab=VINN2
-spice_ignore=true}
+}
 N 820 -520 840 -520 {lab=OUT2
-spice_ignore=true}
+}
 N 1000 -520 1020 -520 {lab=VINN2
-spice_ignore=true}
+}
 N 1460 -130 1460 -120 {lab=VSS
-}
+spice_ignore=true}
 N 1610 -220 1650 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1460 -320 1460 -290 {lab=VDD
-}
+spice_ignore=true}
 N 1370 -240 1390 -240 {lab=VINP3
-}
+spice_ignore=true}
 N 1370 -200 1390 -200 {lab=I_B
-}
+spice_ignore=true}
 N 1350 -560 1350 -540 {lab=VINP3
-}
+spice_ignore=true}
 N 1350 -480 1350 -460 {lab=VSS
-}
+spice_ignore=true}
 N 1380 -220 1390 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1380 -360 1380 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1380 -360 1570 -360 {lab=OUT3
-}
+spice_ignore=true}
 N 1570 -360 1570 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1560 -220 1570 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1610 -220 1610 -190 {lab=OUT3
-}
+spice_ignore=true}
 N 1570 -220 1610 -220 {lab=OUT3
-}
+spice_ignore=true}
 N 1460 -130 1610 -130 {lab=VSS
-}
+spice_ignore=true}
 N 1460 -150 1460 -130 {lab=VSS
-}
+spice_ignore=true}
 N 740 -840 740 -820 {lab=0}
 N 680 -840 680 -820 {lab=0}
 N 680 -910 680 -900 {lab=VSS}
@@ -515,8 +517,10 @@ N 50 -540 50 -510 {lab=VINN1
 spice_ignore=true}
 N 50 -570 50 -540 {lab=VINN1
 spice_ignore=true}
-N 910 -950 910 -920 {lab=OUT3}
-N 910 -860 910 -830 {lab=0}
+N 910 -950 910 -920 {lab=OUT3
+spice_ignore=true}
+N 910 -860 910 -830 {lab=0
+spice_ignore=true}
 C {lab_pin.sym} 80 -230 0 0 {name=p2 sig_type=std_logic lab=VINN1
 spice_ignore=true}
 C {lab_pin.sym} 170 -130 3 0 {name=p5 sig_type=std_logic lab=VSS
@@ -533,8 +537,6 @@ if \{[file exists $raw_path]\} \{
 \} else \{
     puts \\"File $raw_path didn't exist. Please simulate DC_op first and run it!\\"
 \}"}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 200 -210 0 0 {name=x1
-spice_ignore=true}
 C {simulator_commands_shown.sym} 650 -1170 0 0 {name=General_Params
 simulator=ngspice
 only_toplevel=false
@@ -641,7 +643,7 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
 )"
-      }
+      spice_ignore=true}
 C {launcher.sym} -250 -340 0 0 {name=h4
 descr=Plot_AC
 tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_ac.raw]"}
@@ -723,35 +725,33 @@ spice_ignore=true}
 C {lab_pin.sym} 50 -430 3 0 {name=p8 sig_type=std_logic lab=VSS
 spice_ignore=true}
 C {lab_pin.sym} 760 -270 0 0 {name=p14 sig_type=std_logic lab=VINN2
-spice_ignore=true}
+}
 C {lab_pin.sym} 850 -170 3 0 {name=p15 sig_type=std_logic lab=VSS
-spice_ignore=true}
+}
 C {lab_pin.sym} 760 -290 0 0 {name=p16 sig_type=std_logic lab=VINP2
-spice_ignore=true}
+}
 C {lab_pin.sym} 970 -270 2 0 {name=p17 sig_type=std_logic lab=OUT2
-spice_ignore=true}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 880 -250 0 0 {name=x2
-spice_ignore=true}
+}
 C {vdd.sym} 850 -370 0 0 {name=l5 lab=VDD
-spice_ignore=true}
+}
 C {lab_pin.sym} 760 -250 0 0 {name=p18 sig_type=std_logic lab=I_B
-spice_ignore=true}
+}
 C {vsource.sym} 630 -520 0 0 {name=V6 value=\{vicm\} savecurrent=false
-spice_ignore=true}
+}
 C {lab_pin.sym} 630 -570 1 0 {name=p20 sig_type=std_logic lab=VINP2
-spice_ignore=true}
+}
 C {lab_pin.sym} 630 -470 3 0 {name=p21 sig_type=std_logic lab=VSS
-spice_ignore=true}
+}
 C {capa.sym} 710 -520 0 0 {name=C3
 m=1
 value=\{cl\}
 footprint=1206
 device="ceramic capacitor"
-spice_ignore=true}
+}
 C {lab_pin.sym} 710 -480 3 0 {name=p25 sig_type=std_logic lab=VSS
-spice_ignore=true}
+}
 C {lab_pin.sym} 710 -570 1 0 {name=p26 sig_type=std_logic lab=OUT2
-spice_ignore=true}
+}
 C {vsource.sym} 50 -600 0 0 {name=V4 value=\{vid\} savecurrent=false
 spice_ignore=true}
 C {simulator_commands.sym} 1110 -550 0 0 {name=AC
@@ -877,11 +877,11 @@ C {lab_pin.sym} 250 -550 1 0 {name=p11 sig_type=std_logic lab=OUT1
 spice_ignore=true}
 C {lab_pin.sym} 250 -440 3 0 {name=p27 sig_type=std_logic lab=VSS
 spice_ignore=true}
-C {loopgainprobe.sym} 920 -520 0 0 {spice_ignore=true}
+C {loopgainprobe.sym} 920 -520 0 0 {}
 C {lab_pin.sym} 820 -520 0 0 {name=p19 sig_type=std_logic lab=OUT2
-spice_ignore=true}
+}
 C {lab_pin.sym} 1020 -520 2 0 {name=p22 sig_type=std_logic lab=VINN2
-spice_ignore=true}
+}
 C {simulator_commands_shown.sym} 880 -1200 0 0 {name=loopgainprobe
 simulator=ngspice
 only_toplevel=false
@@ -895,29 +895,27 @@ Vnodebuffer b x 0
 "
       }
 C {lab_pin.sym} 1460 -120 3 0 {name=p24 sig_type=std_logic lab=VSS
-}
+spice_ignore=true}
 C {lab_pin.sym} 1370 -240 0 0 {name=p28 sig_type=std_logic lab=VINP3
-}
+spice_ignore=true}
 C {lab_pin.sym} 1650 -220 2 0 {name=p29 sig_type=std_logic lab=OUT3
-}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 1490 -200 0 0 {name=x3
-}
+spice_ignore=true}
 C {vdd.sym} 1460 -320 0 0 {name=l6 lab=VDD
-}
+spice_ignore=true}
 C {lab_pin.sym} 1370 -200 0 0 {name=p30 sig_type=std_logic lab=I_B
-}
+spice_ignore=true}
 C {vsource.sym} 1350 -510 0 0 {name=V5 value=\{vicm\} savecurrent=false
-}
+spice_ignore=true}
 C {lab_pin.sym} 1350 -560 1 0 {name=p31 sig_type=std_logic lab=VINP3
-}
+spice_ignore=true}
 C {lab_pin.sym} 1350 -460 3 0 {name=p32 sig_type=std_logic lab=VSS
-}
+spice_ignore=true}
 C {capa.sym} 1610 -160 0 0 {name=C2
 m=1
 value=\{cl\}
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {simulator_commands.sym} 1870 -480 0 0 {name=PSRR
 simulator=ngspice
 only_toplevel="false" 
@@ -1075,7 +1073,7 @@ alter @v5[pulse] = [ 0.6 0.6 0 0 0 1u 2u ]
 
 plot v_outl v_inl
 .endc"
-}
+spice_ignore=true}
 C {simulator_commands.sym} 1730 -480 0 0 {name=TRAN_small
 simulator=ngspice
 only_toplevel="false" 
@@ -1563,7 +1561,15 @@ C {res.sym} 910 -890 0 0 {name=R1
 value=2k
 footprint=1206
 device=resistor
-m=1}
+m=1
+spice_ignore=true}
 C {lab_pin.sym} 910 -950 2 0 {name=p23 sig_type=std_logic lab=OUT3
+spice_ignore=true}
+C {gnd.sym} 910 -830 0 0 {name=l8 lab=0
+spice_ignore=true}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 1490 -200 0 0 {name=x3
+spice_ignore=true}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 200 -210 0 0 {name=x1
+spice_ignore=true}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 880 -250 0 0 {name=x2
 }
-C {gnd.sym} 910 -830 0 0 {name=l8 lab=0}

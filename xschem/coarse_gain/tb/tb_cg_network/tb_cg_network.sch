@@ -99,7 +99,6 @@ N 180 -410 190 -410 {lab=IN2
 }
 N 180 -410 180 -380 {lab=IN2
 }
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_network.sym} 110 50 0 0 {name=x1}
 C {isource.sym} -50 -360 0 0 {name=I0 value=\{ib\}}
 C {vsource.sym} -130 -370 0 0 {name=V2 value=\{vdd\} savecurrent=false}
 C {gnd.sym} -130 -320 0 0 {name=l1 lab=0}
@@ -452,3 +451,4 @@ value=".include $PDK_ROOT/$PDK/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdc
 C {launcher.sym} -130 90 0 0 {name=h1
 descr=xschemrc
 tclcommand="source xschemrc"}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_network.sym} 110 50 0 0 {name=x1}
