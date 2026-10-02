@@ -32,6 +32,7 @@ This block implements the coarse-gain configuration (Stage 2) of the Programmabl
 
 ## Specifications & Pre-Layout Performance Summary
 ### Coarse-Gain Network
+
 Characterization of the complete coarse-gain stage across all 16 gain states (`S0` through `S15`) under nominal operating conditions ($V_{DD} = 1.2\text{ V}$, $V_{ICM} = 0.6\text{ V}$, $T = 27^\circ\text{C}$):
 
 | Tap | Code | Target (dB) | Meas (dB) | Err (dB) | Err (Step) | Acc_FS (%) | -3dB BW (Hz) | Vos_out (mV) | V_vg_err (mV) | P_dc ($\mu\text{W}$) |
@@ -77,7 +78,7 @@ Evaluated at nominal conditions: $V_{DD} = 1.2\text{ V}$, $V_{ICM} = 0.6\text{ V
 | **CMRR (@DC/@100 kHz)** | $> 60.0\text{ dB}/> 35.0\text{ dB}$ | **$64.00\text{ dB}/38.12\text{ dB}$** | Met |
 | **PSRR (@DC/@100 kHz)** | $> 35.0\text{ dB}$ | **$36.11\text{ dB}/35.54\text{ dB}$** | Met |
 | **Linear ICMR Span** | $> 0.70\text{ V}$ | **$0.034\text{ V} - 0.897\text{ V}$ ($0.863\text{ V}$ span)** | Met (Linear gain $> 0.98$) |
-| **Input-Referred Noise Floor** | $\sim 10\text{nV}/\sqrt{\text{Hz}}$ | **$57.13\text{nV}/\sqrt{\text{Hz}}$ (@1 MHz)** | $1/f$ corner $\sim 10\text{kHz}$ |
+| **Input-Referred Noise Floor** | $\sim 10\text{ nV}/\sqrt{\text{Hz}}$ | **$57.13\text{ nV}/\sqrt{\text{Hz}}$ (@1 MHz)** | $1/f$ corner $\sim 10\text{kHz}$ |
 
 ### Detailed Telemetry & Characterization
 #### 1. Operating Point & DC Linearity
