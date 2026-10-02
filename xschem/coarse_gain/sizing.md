@@ -23,7 +23,7 @@ Split-capacitor active Miller compensation connected from the output node:
 | `XC2` | `cap_cmomf` | 22.07 × 22.07 | Node N_A to `V_out` | $C_{M1} \approx 0.95\text{ pF}$ (dominant Stage-1 feedback) |
 
 ## Bias Generator Circuitry (Bias Generator & Replicas)
-Internal bias generation network referenced from master input current `I_bias` ($1\,\mu\text{A}$):
+Internal bias generation network referenced from master input current `I_bias` ($1\mu\text{A}$):
 
 | Instance | Device Type | W / L (µm) | Layout (m / ng) | Circuit Role / Bias Sub-block |
 | :--- | :--- | :--- | :--- | :--- |
