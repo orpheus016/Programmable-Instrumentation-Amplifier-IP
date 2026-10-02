@@ -42,13 +42,9 @@ N -30 -430 -30 -280 {lab=#net11}
 N -80 -430 -30 -430 {lab=#net11}
 N -30 -430 50 -430 {lab=#net11}
 N -920 -430 -920 -280 {lab=#net12}
-N -920 -430 -860 -430 {lab=#net12}
 N -750 -430 -750 -280 {lab=#net13}
-N -800 -430 -750 -430 {lab=#net13}
-N -750 -430 -670 -430 {lab=#net13}
 N -560 -430 -480 -430 {lab=#net14}
 N -560 -430 -560 -280 {lab=#net14}
-N -610 -430 -560 -430 {lab=#net14}
 N -370 -430 -370 -280 {lab=#net15}
 N -420 -430 -370 -430 {lab=#net15}
 N -370 -430 -310 -430 {lab=#net15}
@@ -388,7 +384,10 @@ N -180 10 -70 10 {lab=#net17}
 N -180 -110 -180 10 {lab=#net17}
 N -200 -110 -180 -110 {lab=#net17}
 N -190 10 -180 10 {lab=#net17}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_analog/coarse_gain/cg_ota.sym} 30 30 0 0 {name=x1}
+N -750 -430 -670 -430 {lab=#net13}
+N -610 -430 -560 -430 {lab=#net14}
+N -800 -430 -750 -430 {lab=#net13}
+N -920 -430 -860 -430 {lab=#net12}
 C {ipin.sym} -100 30 0 0 {name=p1 lab=I_BIAS}
 C {ipin.sym} -270 10 0 0 {name=p2 lab=V_IN2}
 C {ipin.sym} -100 -10 0 0 {name=p3 lab=V_CM}
@@ -614,19 +613,20 @@ C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 1160 -320 0 0 {name=x30 VDD="AVDD" 
 C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 1330 -320 0 0 {name=x31 VDD="AVDD" VSS="AVSS" prefix=sg13cmos5l_ }
 C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 1510 -320 0 0 {name=x32 VDD="AVDD" VSS="AVSS" prefix=sg13cmos5l_ }
 C {sg13cmos5l_stdcells/sg13cmos5l_inv_1.sym} 1700 -320 0 0 {name=x33 VDD="AVDD" VSS="AVSS" prefix=sg13cmos5l_ }
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} -770 -180 3 0 {name=x2 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} -600 -180 3 0 {name=x3 l=0.13e-6 wn=0.2e-6 wp=0.6e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} -410 -180 3 0 {name=x4 l=0.13e-6 wn=0.2e-6 wp=0.6e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} -220 -180 3 0 {name=x5 l=0.13e-6 wn=0.2e-6 wp=0.6e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} -50 -180 3 0 {name=x6 l=0.13e-6 wn=0.2e-6 wp=0.6e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 120 -180 3 0 {name=x7 l=0.13e-6 wn=0.5e-6 wp=1.5e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 310 -180 3 0 {name=x8 l=0.13e-6 wn=0.5e-6 wp=1.5e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 500 -180 3 0 {name=x9 l=0.13e-6 wn=0.5e-6 wp=1.5e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 670 -180 3 0 {name=x10 l=0.13e-6 wn=1e-6 wp=3e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 840 -180 3 0 {name=x11 l=0.13e-6 wn=1.2e-6 wp=3.6e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1030 -180 3 0 {name=x12 l=0.13e-6 wn=3e-6 wp=9e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1220 -180 3 0 {name=x13 l=0.13e-6 wn=3e-6 wp=9e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1390 -180 3 0 {name=x14 l=0.13e-6 wn=3e-6 wp=9e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1560 -180 3 0 {name=x15 l=0.13e-6 wn=3e-6 wp=9e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1750 -180 3 0 {name=x16 l=0.13e-6 wn=3e-6 wp=9e-6}
-C {/foss/designs/Programmable-Instrumentation-Amplifier-IP/designs/libs/core_digital/tgate/tgate.sym} 1940 -180 3 0 {name=x17 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} -770 -180 3 0 {name=x2 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} -600 -180 3 0 {name=x3 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} -410 -180 3 0 {name=x4 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} -220 -180 3 0 {name=x5 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} -50 -180 3 0 {name=x6 l=0.13e-6 wn=0.15e-6 wp=0.45e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 120 -180 3 0 {name=x7 l=0.13e-6 wn=0.2e-6 wp=0.6e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 310 -180 3 0 {name=x8 l=0.13e-6 wn=0.5e-6 wp=1.5e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 500 -180 3 0 {name=x9 l=0.13e-6 wn=1e-6 wp=3e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 670 -180 3 0 {name=x10 l=0.13e-6 wn=1e-6 wp=3e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 840 -180 3 0 {name=x11 l=0.13e-6 wn=1.5e-6 wp=4.5e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1030 -180 3 0 {name=x12 l=0.13e-6 wn=2e-6 wp=6e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1220 -180 3 0 {name=x13 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1390 -180 3 0 {name=x14 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1560 -180 3 0 {name=x15 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1750 -180 3 0 {name=x16 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/tgate/tgate.sym} 1940 -180 3 0 {name=x17 l=0.13e-6 wn=3e-6 wp=9e-6}
+C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 30 30 0 0 {name=x1}
