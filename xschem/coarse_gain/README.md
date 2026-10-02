@@ -54,7 +54,7 @@ Characterization of the complete coarse-gain stage across all 16 gain states (`S
 | `S14` | 14 | 52.50 | 52.242 | -0.258 | -0.069 | 99.54% | 19.72 kHz | 86.61 | 5.60 | 88.36 |
 | `S15` | 15 | 56.25 | 55.642 | -0.608 | -0.162 | 98.92% | 13.37 kHz | 124.85 | 5.58 | 88.56 |
 
-### Key Observations
+#### Key Observations
 * **Step Monotonicity & Enhanced Precision**: High linearity across all 16 gain states with full-scale accuracy exceeding 98.9% (peaking at 99.97% on `S9`). The mid-gain optimization successfully mitigates positive overshoot, keeping maximum positive error bounded within $+0.273\text{ dB}$ (at `S0`) and $+0.215\text{ dB}$ (at `S10`), while the worst-case negative deviation is $-0.608\text{ dB}$ (at `S15`).
 * **Bandwidth Progression**: The $-3\text{ dB}$ bandwidth scales smoothly from $5.21\text{ MHz}$ at unity gain (`S0`) down to $13.37\text{ kHz}$ at maximum coarse gain (`S15`), maintaining stable pole roll-off and a well-behaved gain-bandwidth trade-off across all operating taps.
 * **Virtual Ground Consistency**: Virtual ground DC tracking error ($V_{vg,err}$) remains stable and tightly bound between $5.58\text{ mV}$ and $5.66\text{ mV}$ across all 16 settings, perfectly tracking the systematic input offset of the operational amplifier.
@@ -80,12 +80,12 @@ Evaluated at nominal conditions: $V_{DD} = 1.2\text{ V}$, $V_{ICM} = 0.6\text{ V
 | **Linear ICMR Span** | $> 0.70\text{ V}$ | **$0.034\text{ V} - 0.897\text{ V}$ ($0.863\text{ V}$ span)** | Met (Linear gain $> 0.98$) |
 | **Input-Referred Noise Floor** | $\sim 10\text{ nV}/\sqrt{\text{Hz}}$ | **$57.13\text{ nV}/\sqrt{\text{Hz}}$ (@1 MHz)** | $1/f$ corner $\sim 10\text{kHz}$ |
 
-### Detailed Telemetry & Characterization
-#### 1. Operating Point & DC Linearity
+#### Detailed Telemetry & Characterization
+##### 1. Operating Point & DC Linearity
 * **Open-Loop Configuration**: Systematic offset of $-5.67\text{ mV}$ ($V_{OUT} = 0.6057\text{ V}$ at $V_{ICM} = 0.6\text{ V}$).
 * **DC Input Dynamic Range**: Sweep across $IN+$ yields maximum DC gain of $62.52\text{ dB}$ ($1336.9\text{ V/V}$).
 * **Unity-Gain Follower Mode**: Closed-loop buffer configuration consumes $68.00\,\mu\text{A}$ ($81.60\text{}\mu\text{W}$) with $V_{OUT} = 1.195\text{ V}$.
-#### 2. Noise Performance
+##### 2. Noise Performance
 * **Total Integrated Output Noise ($10\text{ Hz} - 100\text{ MHz}$)**: $520.63\text{}\mu\text{V}_{\text{rms}}$.
 * **Total Integrated Input Noise ($10\text{ Hz} - 100\text{ MHz}$)**: $1108.56\text{}\mu\text{V}_{\text{rms}}$.
 * **Spot Input-Referred Noise (IRN)**:
@@ -95,12 +95,12 @@ Evaluated at nominal conditions: $V_{DD} = 1.2\text{ V}$, $V_{ICM} = 0.6\text{ V
   * @ $10\text{ kHz}$: $180.9\text{ nV}/\sqrt{\text{Hz}}$
   * @ $100\text{ kHz}$: $76.02\text{ nV}/\sqrt{\text{Hz}}$
   * @ $1\text{ MHz}$ (Thermal noise floor): $57.13\text{ nV}/\sqrt{\text{Hz}}$
-#### 3. Step Response & Large-Signal Transient
+##### 3. Step Response & Large-Signal Transient
 * **Rise / Fall Times ($10\% - 90\%$)**: $t_r = 225.14\text{ ns}$, $t_f = 103.97\text{ ns}$.
 * **Propagation Delays**: $t_{pLH} = 69.24\text{ ns}$, $t_{pHL} = 92.87\text{ ns}$.
 * **Small-Signal Tracking**: Delay $= 19.74\text{ ns}$, rise time $= 28.68\text{ ns}$.
 * **Settling Dynamic**: $513.68\text{ ns}$ (1% band), $513.45\text{ ns}$ (0.1% band) with peak overshoot of $8.32\%$ ($V_{peak} = 0.658\text{ V}$).
-#### 4. Monte Carlo Statistical Analysis (100 Iterations)
+##### 4. Monte Carlo Statistical Analysis (100 Iterations)
 Evaluated with process and device mismatch:
 * **Input Offset Voltage ($V_{os}$)**:
   * Mean ($\mu$): $-5.667\text{ mV}$
@@ -110,7 +110,7 @@ Evaluated with process and device mismatch:
 * **Total Quiescent Current ($I_q$)**:
   * Mean ($\mu$): $73.21\text{}\mu\text{A}$
   * Standard Deviation ($\sigma$): $41.24\text{ nA}$
-#### 5. PVT Corner Stability Analysis
+##### 5. PVT Corner Stability Analysis
 The coarse gain OTA is simulated across all process corners (`tt`, `ss`, `ff`, `sf`, `fs`), operating temperatures ($-40^\circ\text{C}$ to $+125^\circ\text{C}$), and supply voltages ($1.00\text{ V}$ to $1.50\text{ V}$):
 
 | Process Corner | DC Gain Range (dB) | UGBW Range (MHz) | Phase Margin Range ($^\circ$) | Gain Margin Range (dB) | Worst-Case Condition |
