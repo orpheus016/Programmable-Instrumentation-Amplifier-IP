@@ -11,6 +11,8 @@ designs/libs/core_digital/dec2to4/notes/
 designs/libs/core_digital/dec2to4/librelane/
 designs/libs/core_digital/decoder_top_10b/librelane/runs/
 
+designs/libs/pgia_top/backups/
+
 # C extensions
 *.so
 
@@ -229,10 +231,9 @@ __marimo__/
 .venv
 .ipynb_checkpoints
 
-<<<<<<< HEAD
 docs/
 designs/libs/core_digital/dec2to4/backups/dec2to4_backup_2026-09-23_09h57m25_482.gds
-=======
 # RAW files
 result
->>>>>>> c2f89556ad851a2d813bc0964c8fc1e69827baba
+xschem/coarse_gain/tb/tb_cg_network/xschemrc
+xschem/coarse_gain/tb/tb_cg_network/xschemrc
