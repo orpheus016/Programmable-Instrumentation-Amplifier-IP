@@ -51,8 +51,8 @@ ypos2=2
 divy=10
 subdivy=1
 unity="V"
-x1=-0.7
-x2=0.7
+x1=-2.5
+x2=7.5
 divx=20
 subdivx=1
 xlabmag=1.25
@@ -73,8 +73,8 @@ ypos2=1
 divy=5
 subdivy=1
 unity=1
-x1=-0.6
-x2=0.6
+x1=-2.5
+x2=7.5
 divx=20
 subdivx=1
 xlabmag=1.5
@@ -95,8 +95,8 @@ ypos2=1
 divy=8
 subdivy=1
 unity=A
-x1=-0.1
-x2=0.1
+x1=-2.5
+x2=7.5
 divx=6
 subdivx=1
 xlabmag=1.0
@@ -118,8 +118,8 @@ ypos2=2
 divy=20
 subdivy=1
 unity=1
-x1=-60m
-x2=60m
+x1=-2.5
+x2=7.5
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -140,8 +140,8 @@ ypos2=2
 divy=20
 subdivy=1
 unity="dB"
-x1=0
-x2=8
+x1=-2.5
+x2=7.5
 divx=20
 subdivx=1
 xlabmag=1.25
@@ -163,8 +163,8 @@ ypos2=1
 divy=20
 subdivy=1
 unity="V/rtHz"
-x1=0
-x2=8
+x1=-2.5
+x2=7.5
 divx=20
 subdivx=1
 xlabmag=1
@@ -186,8 +186,8 @@ divy=20
 subdivy=1
 unity="dB
 deg"
-x1=0
-x2=10
+x1=-2.5
+x2=7.5
 divx=20
 subdivx=1
 xlabmag=1.25
@@ -209,8 +209,8 @@ ypos2=2
 divy=10
 subdivy=1
 unity="V V"
-x1=0
-x2=3u
+x1=-2.5
+x2=7.5
 divx=5
 subdivx=1
 xlabmag=1
@@ -232,8 +232,8 @@ ypos2=1
 divy=10
 subdivy=1
 unity="dB"
-x1=0
-x2=10
+x1=-2.5
+x2=7.5
 divx=15
 subdivx=1
 xlabmag=1
@@ -254,8 +254,8 @@ ypos2=1
 divy=15
 subdivy=1
 unity="dB"
-x1=0
-x2=10
+x1=-2.5
+x2=7.5
 divx=15
 subdivx=1
 xlabmag=1
@@ -276,8 +276,8 @@ ypos2=2
 divy=15
 subdivy=1
 unity="V"
-x1=0
-x2=1.5u
+x1=-2.5
+x2=7.5
 divx=6
 subdivx=1
 xlabmag=1
@@ -299,8 +299,8 @@ ypos2=1
 divy=10
 subdivy=1
 unity="V"
-x1=0
-x2=1.2
+x1=-2.5
+x2=7.5
 divx=10
 subdivx=1
 xlabmag=1.25
@@ -321,8 +321,8 @@ ypos2=1
 divy=10
 subdivy=1
 unity="V"
-x1=0
-x2=1.2
+x1=-2.5
+x2=7.5
 divx=10
 subdivx=1
 xlabmag=1.25
@@ -343,8 +343,8 @@ ypos2=1
 divy=10
 subdivy=1
 unity="V"
-x1=0
-x2=1.2
+x1=-2.5
+x2=7.5
 divx=10
 subdivx=1
 xlabmag=1.25
@@ -424,7 +424,12 @@ you have to simulate all of them first.
 If raw files existed in ./result directory,
 you can plot them all.
 
-Status: All raw files have existed. Plot ready} 1720 50 0 0 0.4 0.4 {}
+Status:
+All raw files have existed. Plot ready.
+Just launch the "Plot" and "Op" launcher arrows on the right side.
+
+To know the simulation results in text, simulations must be redone.
+Except PVT simulations, the results can be accessed on "tb_cg_ota_pvt.txt"} 1720 50 0 0 0.4 0.4 {}
 N 170 -160 170 -130 {lab=VSS
 spice_ignore=true}
 N 270 -230 290 -230 {lab=OUT1
@@ -447,23 +452,23 @@ spice_ignore=true}
 N 160 -540 160 -520 {lab=OUT1
 spice_ignore=true}
 N 850 -200 850 -170 {lab=VSS
-}
+spice_ignore=true}
 N 950 -270 970 -270 {lab=OUT2
-}
+spice_ignore=true}
 N 850 -370 850 -340 {lab=VDD
-}
+spice_ignore=true}
 N 760 -290 780 -290 {lab=VINP2
-}
+spice_ignore=true}
 N 760 -250 780 -250 {lab=I_B
-}
+spice_ignore=true}
 N 630 -570 630 -550 {lab=VINP2
-}
+spice_ignore=true}
 N 630 -490 630 -470 {lab=VSS
-}
+spice_ignore=true}
 N 710 -490 710 -480 {lab=VSS
-}
+spice_ignore=true}
 N 710 -570 710 -550 {lab=OUT2
-}
+spice_ignore=true}
 N 50 -650 50 -630 {lab=VINP1
 spice_ignore=true}
 N 250 -550 250 -530 {lab=OUT1
@@ -471,11 +476,11 @@ spice_ignore=true}
 N 250 -470 250 -440 {lab=VSS
 spice_ignore=true}
 N 760 -270 780 -270 {lab=VINN2
-}
+spice_ignore=true}
 N 820 -520 840 -520 {lab=OUT2
-}
+spice_ignore=true}
 N 1000 -520 1020 -520 {lab=VINN2
-}
+spice_ignore=true}
 N 1460 -130 1460 -120 {lab=VSS
 spice_ignore=true}
 N 1610 -220 1650 -220 {lab=OUT3
@@ -725,33 +730,33 @@ spice_ignore=true}
 C {lab_pin.sym} 50 -430 3 0 {name=p8 sig_type=std_logic lab=VSS
 spice_ignore=true}
 C {lab_pin.sym} 760 -270 0 0 {name=p14 sig_type=std_logic lab=VINN2
-}
+spice_ignore=true}
 C {lab_pin.sym} 850 -170 3 0 {name=p15 sig_type=std_logic lab=VSS
-}
+spice_ignore=true}
 C {lab_pin.sym} 760 -290 0 0 {name=p16 sig_type=std_logic lab=VINP2
-}
+spice_ignore=true}
 C {lab_pin.sym} 970 -270 2 0 {name=p17 sig_type=std_logic lab=OUT2
-}
+spice_ignore=true}
 C {vdd.sym} 850 -370 0 0 {name=l5 lab=VDD
-}
+spice_ignore=true}
 C {lab_pin.sym} 760 -250 0 0 {name=p18 sig_type=std_logic lab=I_B
-}
+spice_ignore=true}
 C {vsource.sym} 630 -520 0 0 {name=V6 value=\{vicm\} savecurrent=false
-}
+spice_ignore=true}
 C {lab_pin.sym} 630 -570 1 0 {name=p20 sig_type=std_logic lab=VINP2
-}
+spice_ignore=true}
 C {lab_pin.sym} 630 -470 3 0 {name=p21 sig_type=std_logic lab=VSS
-}
+spice_ignore=true}
 C {capa.sym} 710 -520 0 0 {name=C3
 m=1
 value=\{cl\}
 footprint=1206
 device="ceramic capacitor"
-}
+spice_ignore=true}
 C {lab_pin.sym} 710 -480 3 0 {name=p25 sig_type=std_logic lab=VSS
-}
+spice_ignore=true}
 C {lab_pin.sym} 710 -570 1 0 {name=p26 sig_type=std_logic lab=OUT2
-}
+spice_ignore=true}
 C {vsource.sym} 50 -600 0 0 {name=V4 value=\{vid\} savecurrent=false
 spice_ignore=true}
 C {simulator_commands.sym} 1110 -550 0 0 {name=AC
@@ -877,11 +882,11 @@ C {lab_pin.sym} 250 -550 1 0 {name=p11 sig_type=std_logic lab=OUT1
 spice_ignore=true}
 C {lab_pin.sym} 250 -440 3 0 {name=p27 sig_type=std_logic lab=VSS
 spice_ignore=true}
-C {loopgainprobe.sym} 920 -520 0 0 {}
+C {loopgainprobe.sym} 920 -520 0 0 {spice_ignore=true}
 C {lab_pin.sym} 820 -520 0 0 {name=p19 sig_type=std_logic lab=OUT2
-}
+spice_ignore=true}
 C {lab_pin.sym} 1020 -520 2 0 {name=p22 sig_type=std_logic lab=VINN2
-}
+spice_ignore=true}
 C {simulator_commands_shown.sym} 880 -1200 0 0 {name=loopgainprobe
 simulator=ngspice
 only_toplevel=false
@@ -1507,7 +1512,7 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_mismatch
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_stat
 )"
-      spice_ignore=true}
+      }
 C {simulator_commands.sym} -290 -1150 0 0 {name=Worst-Case_SS
 simulator=ngspice
 only_toplevel=false 
@@ -1572,4 +1577,4 @@ spice_ignore=true}
 C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 200 -210 0 0 {name=x1
 spice_ignore=true}
 C {/foss/designs/sg13cmos5l_spma_ip__instramp/xschem/coarse_gain/cg_ota.sym} 880 -250 0 0 {name=x2
-}
+spice_ignore=true}

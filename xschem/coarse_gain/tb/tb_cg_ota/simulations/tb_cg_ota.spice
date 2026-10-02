@@ -2,11 +2,10 @@
 **.subckt tb_cg_ota
 I0 VDD I_B {ib}
 V2 VDD 0 {vdd}
-V6 VINP2 VSS {vicm}
-C3 OUT2 VSS {cl}
-X999 OUT2 VINN2 loopgainprobe
+V5 VINP3 VSS {vicm}
+C2 OUT3 VSS {cl}
 V3 VSS 0 0
-x2 VDD VINP2 VINN2 OUT2 I_B VSS cg_ota
+x3 VDD VINP3 OUT3 OUT3 I_B VSS cg_ota
 **** begin user architecture code
 
 
@@ -32,146 +31,164 @@ Vnodebuffer b x 0
 
 
 * ===============================================================
-* SIMULATION 8: MULTI-CORNER PVT STABILITY ANALYSIS (TIAN PROBE)
-* Topology : Folded-Cascode OTA with Class-AB Output Stage (x2)
-* PDK      : IHP SG13CMOS5L (130nm BiCMOS)
+* MONTE CARLO MISMATCH & PROCESS SIMULATION
+* Topology: Closed-Loop Unity-Gain Follower (x3)
+* PDK     : IHP SG13G2 (PSP103 via OSDI)
 * ===============================================================
 
+* Critical IHP PDK parameter switches to activate statistical variations
+.param mm_ok=1
+.param mc_ok=1
+.param temp=27
+
 .control
-* 1. Clear previous simulation memory and initialize output directory
+* 1. Clear previous session datasets and prepare output directory
 destroy all
+save all
 shell mkdir -p result
 
-* 2. Active process corner configuration (Update both per corner run)
-*    Available corners: "tt", "ss", "ff", "sf", "fs"
-set corner_name = "fs"
-set raw_file    = "./result/tb_cg_ota_pvt_fs.raw"
-set txt_file    = "./result/tb_cg_ota_pvt.txt"
+echo "======================================================="
+echo "   STARTING MONTE CARLO SIMULATION (OTA FOLLOWER)      "
+echo "======================================================="
 
-* 3. Initialize table header safely without ngspice redirection truncation
-*    Uses python to create the file and header ONLY if it does not exist yet
-shell python3 -c 'import os; f="./result/tb_cg_ota_pvt_all.txt"; os.path.exists(f) or open(f,"w").write("==========================================================================================n Corner | Temp(C) | VDD(V) | Vicm(V) | Av0(dB)  | Av0(V/V)  | UGBW(MHz) | PM(deg)  | GM(dB)   n==========================================================================================n")'
+* 2. Initialize iteration counter and dedicated scratch plot
+let mc_runs = 100
+let run = 0
 
-* Enable sequential dataset appending for the per-corner rawfile
-set appendwrite
+* Create a dedicated container plot to safely aggregate all run results
+set curplot = new
+set scratch = $curplot
+setplot $scratch
 
-echo "=========================================================================================="
-echo " STARTING PVT STABILITY SWEEP FOR CORNER: " $corner_name
-echo "=========================================================================================="
+* Pre-allocate vectors in the scratch plot
+let vos_vec = unitvec(mc_runs)
+let iq_vec  = unitvec(mc_runs)
 
-* 4. Outer Loop: Operational Temperature Sweep (-40 C, 27 C, 125 C)
-foreach c_temp -40 27 125
+* Initialize summary text file header
+echo "Run_ID  Vos_mV      Iq_uA" >> ./result/tb_cg_ota_mc.txt
 
-  * Update internal SPICE simulator temperature options
-  set temper = $c_temp
-  option temp = $c_temp
+* ===============================================================
+* 3. MONTE CARLO EXECUTION LOOP
+* ===============================================================
+dowhile run < mc_runs
+  set rnd_seed=$&run
+  * Execute DC operating point (evaluates new statistical sample)
+  op
 
-  * 5. Inner Loop: Supply Voltage Sweep (VDD +/- 10%: 1 V, 1.08 V, 1.20 V, 1.32 V. 1.45 V, 1.5 V)
-  foreach v_vdd 1 1.08 1.20 1.32 1.45 1.5
+  * Capture current loop index and temporary plot pointer
+  set run_idx = $&run
+  set dt = $curplot
 
-    * Calculate symmetrical mid-rail common-mode reference (Vicm = VDD / 2)
-    let c_vicm = $v_vdd / 2
+  * Calculate parameters inside the active op dataset ($dt)
+  setplot $dt
+  let cur_vos = (v(vinp3) - v(out3)) * 1000
+  let cur_iq  = -i(v2) * 1e6
 
-    * Dynamically alter DC supply and common-mode input bias voltages
-    alter @v2[dc] = $v_vdd
-    alter @v6[dc] = $&c_vicm
+  * Lock values to shell variables while still in $dt plot context
+  set s_vos = "$&cur_vos"
+  set s_iq  = "$&cur_iq"
 
-    * -----------------------------------------------------------
-    * TIAN CYCLE 1: VOLTAGE INJECTION (V-test)
-    * -----------------------------------------------------------
-    alter i.x999.ii acmag=0
-    alter v.x999.vi acmag=1
-    ac dec 30 1 10G
-    set plot_v = $curplot
+  * Switch context to scratch plot and store scalar values into arrays
+  setplot $scratch
+  let vos_vec[run] = {$dt}.cur_vos
+  let iq_vec[run]  = {$dt}.cur_iq
 
-    * -----------------------------------------------------------
-    * TIAN CYCLE 2: CURRENT INJECTION (I-test)
-    * -----------------------------------------------------------
-    alter i.x999.ii acmag=1
-    alter v.x999.vi acmag=0
-    ac dec 30 1 10G
-    set plot_i = $curplot
+  * Append individual iteration data to text log
+  set s_idx = "$&run"
+  echo "$s_idx   $s_vos   $s_iq" >> ./result/tb_cg_ota_mc.txt
 
-    * -----------------------------------------------------------
-    * DYNAMIC TIAN RECONSTRUCTION & STABILITY EXTRACTION
-    * -----------------------------------------------------------
-    setplot $plot_v
+  * Return to run plot and clear circuit state for next sample
+  setplot $dt
+  reset
 
-    * Retrieve nodal voltages and branch currents from matched AC cycles
-    let v1_x = {$plot_v}.v(x999.x)
-    let i1_b = {$plot_v}.v.x999.vi#branch
-    let v2_x = {$plot_i}.v(x999.x)
-    let i2_b = {$plot_i}.v.x999.vi#branch
-
-    * General bilateral Tian determinant formula: D = 2*(I1*V2 - V1*I2) + V1 + I2
-    let d_tian = 2 * (i1_b * v2_x - v1_x * i2_b) + v1_x + i2_b
-    let t_gain = 1 / (1 - 1 / d_tian)
-
-    * Extract real scalar vectors to avoid complex data rectification in raw files
-    let loop_magnitude = real(db(t_gain))
-    let loop_phase = real(180 * cph(t_gain) / pi) + 180
-
-    * Extract key stability figures of merit
-    meas ac pvt_gain find loop_magnitude at=10
-    let pvt_gain_lin = 10^(pvt_gain / 20)
-
-    meas ac pvt_ugbw when loop_magnitude=0
-    meas ac pvt_pm_raw find loop_phase when loop_magnitude=0
-    let pvt_pm = pvt_pm_raw - 180
-
-    * Gain Margin evaluated at phase crossover (0 degrees)
-    meas ac pvt_gm_loss find loop_magnitude when loop_phase=180
-    let pvt_gm = -pvt_gm_loss
-
-    let pvt_ugbw_mhz = pvt_ugbw / 1e6
-
-    * Print current iteration summary to console
-    echo " [" $corner_name "] T=" $c_temp "C | VDD=" $v_vdd "V | Av0=" $&pvt_gain "dB | UGBW=" $&pvt_ugbw_mhz "MHz | PM=" $&pvt_pm "deg | GM=" $&pvt_gm "dB"
-
-    * -----------------------------------------------------------
-    * SAFE TABLE DATA APPENDING
-    * -----------------------------------------------------------
-    * Lock numerical values to shell variables before writing
-    set s_vicm     = "$&c_vicm"
-    set s_gain     = "$&pvt_gain"
-    set s_gain_lin = "$&pvt_gain_lin"
-    set s_ugbw     = "$&pvt_ugbw_mhz"
-    set s_pm       = "$&pvt_pm"
-    set s_gm       = "$&pvt_gm"
-
-    * Append row cleanly using a single consolidated string
-    echo " $corner_name    | $c_temp     | $v_vdd    | $s_vicm     | $s_gain   | $s_gain_lin   | $s_ugbw     | $s_pm    | $s_gm" >> $txt_file
-
-    * Export Bode curves to dedicated per-corner rawfile
-    write $raw_file loop_magnitude loop_phase
-    write ./result/tb_cg_ota_pvt_all.raw loop_magnitude loop_phase
-  end
+  let run = run + 1
 end
 
-* 6. Restore Tian probe sources, supply voltages, and simulator options to nominal state
-alter i.x999.ii acmag=0
-alter v.x999.vi acmag=0
-alter @v2[dc] = 1.20
-alter @v6[dc] = 0.60
-set temper = 27
-option temp = 27
+* ===============================================================
+* 4. STATISTICAL POST-PROCESSING (IN SCRATCH PLOT)
+* ===============================================================
+setplot $scratch
 
-echo "=========================================================================================="
-echo " Corner " $corner_name " completed and appended to " $txt_file
-echo " Bode curves saved to " $raw_file
-echo "=========================================================================================="
+* A. Mean calculation (mu)
+let sum_vos = 0
+let sum_iq  = 0
+let i = 0
+dowhile i < mc_runs
+  let sum_vos = sum_vos + vos_vec[i]
+  let sum_iq  = sum_iq  + iq_vec[i]
+  let i = i + 1
+end
+let mean_vos = sum_vos / mc_runs
+let mean_iq  = sum_iq  / mc_runs
+
+* B. Sample standard deviation calculation (sigma)
+let sum_sq_vos = 0
+let sum_sq_iq  = 0
+let i = 0
+dowhile i < mc_runs
+  let diff_vos = vos_vec[i] - mean_vos
+  let diff_iq  = iq_vec[i]  - mean_iq
+  let sum_sq_vos = sum_sq_vos + (diff_vos * diff_vos)
+  let sum_sq_iq  = sum_sq_iq  + (diff_iq  * diff_iq)
+  let i = i + 1
+end
+let sigma_vos = sqrt(sum_sq_vos / (mc_runs - 1))
+let sigma_iq  = sqrt(sum_sq_iq  / (mc_runs - 1))
+let span_6sigma_vos = 6 * sigma_vos
+
+* C. Extreme values search across the allocated array
+let min_vos = vos_vec[0]
+let max_vos = vos_vec[0]
+let k = 1
+dowhile k < mc_runs
+  if vos_vec[k] < min_vos
+    let min_vos = vos_vec[k]
+  end
+  if vos_vec[k] > max_vos
+    let max_vos = vos_vec[k]
+  end
+  let k = k + 1
+end
+
+* ===============================================================
+* 5. STATISTICAL SUMMARY REPORT
+* ===============================================================
+echo "======================================================="
+echo "       MONTE CARLO STATISTICAL ANALYSIS RESULTS        "
+echo "======================================================="
+echo " Total Iterations (Runs)     : " $&mc_runs
+echo "-------------------------------------------------------"
+echo " INPUT OFFSET VOLTAGE (Vos) DISTRIBUTION:"
+echo "   - Mean / Systematic (mu)  : " $&mean_vos " mV"
+echo "   - Std Deviation (sigma)   : " $&sigma_vos " mV"
+echo "   - Full Spread (6*sigma)   : " $&span_6sigma_vos " mV"
+echo "   - Minimum Measured Offset : " $&min_vos " mV"
+echo "   - Maximum Measured Offset : " $&max_vos " mV"
+echo "-------------------------------------------------------"
+echo " TOTAL QUIESCENT CURRENT (Iq) DISTRIBUTION:"
+echo "   - Mean Quiescent Current  : " $&mean_iq " uA"
+echo "   - Std Deviation (sigma)   : " $&sigma_iq " uA"
+echo "======================================================="
+echo " Numerical dataset exported to: ./result/tb_cg_ota_mc.txt"
+echo "======================================================="
+
+* Save aggregated scratch vectors into rawfile and CSV format
+write ./result/tb_cg_ota_mc.raw {$scratch}.vos_vec {$scratch}.iq_vec
+wrdata ./result/tb_cg_ota_mc.csv {$scratch}.vos_vec {$scratch}.iq_vec
+
 .endc
 
 
 
 
-
-.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSlv.lib mos_fs
-.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOShv.lib mos_fs
-.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_typ
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOShv.lib mos_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_typ_mismatch
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerRES.lib res_stat
 .lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerDIO.lib dio_tt
 .lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerCAP.lib cap_typ
-.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt_mismatch
+.lib /foss/designs/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/ngspice/models/cornerMOSCAP.lib moscap_tt_stat
 
 
 **** end user architecture code
