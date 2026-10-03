@@ -3,4 +3,4 @@ PDK_ROOT=/foss/designs/IHP-Open-PDK
 PDKPATH=$PDK_ROOT/$PDK
 STD_CELL_LIBRARY=$PDKPATH/libs.ref/sg13cmos5l_stdcell
 SPICE_USERINIT_DIR=$PDKPATH/libs.tech/ngspice
-KLAYOUT_PATH=$PDKPATH/libs.tech/klayoutc
+KLAYOUT_PATH=$PDKPATH/libs.tech/klayout

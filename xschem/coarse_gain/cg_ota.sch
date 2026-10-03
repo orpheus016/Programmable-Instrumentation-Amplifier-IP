@@ -199,10 +199,8 @@ N -140 0 -140 40 {lab=V_ctrlp}
 N -60 300 10 300 {lab=VSS}
 N 870 0 870 10 {lab=V_ctrlp}
 N 870 10 930 10 {lab=V_ctrlp}
-N 1110 -110 1210 -110 {lab=V_out}
 N 1040 -110 1040 -30 {lab=N_A}
 N 970 -30 1040 -30 {lab=N_A}
-N 1040 -110 1050 -110 {lab=N_A}
 N -260 -80 -260 -60 {lab=#net1}
 N -490 -80 -260 -80 {lab=#net1}
 N -260 -120 -260 -80 {lab=#net1}
@@ -280,6 +278,9 @@ N 340 -170 340 -120 {lab=VDD}
 N 320 -170 340 -170 {lab=VDD}
 N 340 -120 340 60 {lab=VDD}
 N 270 60 340 60 {lab=VDD}
+N 1190 -110 1210 -110 {lab=V_out}
+N 1040 -110 1050 -110 {lab=N_A}
+N 1110 -110 1130 -110 {lab=#net7}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} 250 60 0 0 {name=M1
 l=2u
 w=26.56u
@@ -486,7 +487,7 @@ spiceprefix=X
 }
 C {sg13cmos5l_pr/sg13_lv_nmos.sym} -10 220 0 0 {name=M_mn4
 l=2u
-w=3.48u
+w=3.2u
 ng=1
 m=1
 mm_ok=1
@@ -501,8 +502,8 @@ C {lab_pin.sym} 750 150 2 0 {name=p11 sig_type=std_logic lab=F2}
 C {lab_pin.sym} 580 180 0 0 {name=p12 sig_type=std_logic lab=F1}
 C {sg13cmos5l_pr/cap_cmomf.sym} 930 260 3 0 {name=C1
 model=cap_cmomf
-w=26.48e-6
-l=26.48e-6
+w=22e-6
+l=22e-6
 mmin=1
 mmax=4
 subblock=0
@@ -510,10 +511,10 @@ m=1
 mm_ok=1
 spiceprefix=X
 }
-C {sg13cmos5l_pr/cap_cmomf.sym} 1080 -110 3 0 {name=C2
+C {sg13cmos5l_pr/cap_cmomf.sym} 1160 -110 3 0 {name=C2
 model=cap_cmomf
-w=22.07e-6
-l=22.07e-6
+w=15.44e-6
+l=15.44e-6
 mmin=1
 mmax=4
 subblock=0
@@ -523,7 +524,7 @@ spiceprefix=X
 }
 C {sg13cmos5l_pr/rhigh.sym} -550 170 0 0 {name=R1
 w=0.5e-6
-l=17e-6
+l=15e-6
 model=rhigh
 body=VSS
 spiceprefix=X
@@ -591,10 +592,21 @@ C {lab_pin.sym} 120 130 1 0 {name=p14 sig_type=std_logic lab=V_ctrln}
 C {lab_pin.sym} 220 -90 2 0 {name=p15 sig_type=std_logic lab=V_btail}
 C {sg13cmos5l_pr/sg13_lv_pmos.sym} 880 -120 0 0 {name=M_mp5
 l=2u
-w=9.2u
+w=9.21u
 ng=1
 m=1
 mm_ok=1
 model=sg13_lv_pmos
 spiceprefix=X
+}
+C {sg13cmos5l_pr/rhigh.sym} 1080 -110 3 0 {name=R2
+w=0.5e-6
+l=4e-6
+model=rhigh
+body=VSS
+spiceprefix=X
+b=0
+ m=1
+  mm_ok=1
+value="expr_eng(  ( 1.6e-4 / @w + 1360.0 * ( (@b + 1)* @l + ( 1.081*@w + 0.18e-6 )*@b ) / ( @w - 0.04e-6 ) ) / @m  )"
 }

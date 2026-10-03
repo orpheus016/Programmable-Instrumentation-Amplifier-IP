@@ -33,7 +33,7 @@ Vnodebuffer b x 0
 * ===============================================================
 * MONTE CARLO MISMATCH & PROCESS SIMULATION
 * Topology: Closed-Loop Unity-Gain Follower (x3)
-* PDK     : IHP SG13G2 (PSP103 via OSDI)
+* PDK     : IHP SG13CMOSL (PSP103 via OSDI)
 * ===============================================================
 
 * Critical IHP PDK parameter switches to activate statistical variations
@@ -226,17 +226,18 @@ XM_bn1 V_bn1 V_bn1 net2 VSS sg13_lv_nmos w=1.60u l=2u ng=1 m=1 mm_ok=1
 XM_bn2 V_bn2 V_bn2 VSS VSS sg13_lv_nmos w=9.21u l=2u ng=1 m=1 mm_ok=1
 XM_mn2 V_btail I_bias VSS VSS sg13_lv_nmos w=6u l=2u ng=1 m=1 mm_ok=1
 XM_rep_tail V_btail V_btail VDD VDD sg13_lv_pmos w=7.46u l=2u ng=1 m=8 mm_ok=1
-XM_mn4 N_B I_bias VSS VSS sg13_lv_nmos w=3.48u l=2u ng=1 m=1 mm_ok=1
-XC1 F2 V_out cap_cmomf w=26.48e-6 l=26.48e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
-XC2 N_A V_out cap_cmomf w=22.07e-6 l=22.07e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
-XR1 net2 VSS VSS rhigh w=0.5e-6 l=17e-6 m=1 b=0 mm_ok=1
+XM_mn4 N_B I_bias VSS VSS sg13_lv_nmos w=3.2u l=2u ng=1 m=1 mm_ok=1
+XC1 F2 V_out cap_cmomf w=22e-6 l=22e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
+XC2 net7 V_out cap_cmomf w=15.44e-6 l=15.44e-6 mmin=1 mmax=4 subblock=0 m=1 mm_ok=1
+XR1 net2 VSS VSS rhigh w=0.5e-6 l=15e-6 m=1 b=0 mm_ok=1
 XM_mp4 V_ctrln net1 VDD VDD sg13_lv_pmos w=4.60u l=2u ng=1 m=1 mm_ok=1
 XM_rep_ctrln V_ctrln V_ctrln net3 VSS sg13_lv_nmos w=0.84u l=0.5u ng=1 m=1 mm_ok=1
 XM_rep_outn net3 net3 VSS VSS sg13_lv_nmos w=2.10u l=0.5u ng=1 m=1 mm_ok=1
 XM_mn3 V_ctrlp I_bias VSS VSS sg13_lv_nmos w=1.74u l=2u ng=1 m=1 mm_ok=1
 XM_rep_outp net4 net4 VDD VDD sg13_lv_pmos w=5.55u l=0.5u ng=1 m=1 mm_ok=1
 XM_rep_ctrlp V_ctrlp V_ctrlp net4 VDD sg13_lv_pmos w=2.20u l=0.50u ng=1 m=1 mm_ok=1
-XM_mp5 N_A net1 VDD VDD sg13_lv_pmos w=9.2u l=2u ng=1 m=1 mm_ok=1
+XM_mp5 N_A net1 VDD VDD sg13_lv_pmos w=9.21u l=2u ng=1 m=1 mm_ok=1
+XR2 N_A net7 VSS rhigh w=0.5e-6 l=4e-6 m=1 b=0 mm_ok=1
 .ends
 
 .GLOBAL VDD

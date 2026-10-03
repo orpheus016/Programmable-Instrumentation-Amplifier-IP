@@ -648,7 +648,7 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerCAP.lib cap_typ
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt 
 )"
-      spice_ignore=true}
+      }
 C {launcher.sym} -250 -340 0 0 {name=h4
 descr=Plot_AC
 tclcommand="xschem raw_read [file join $netlist_dir result tb_cg_ota_ac.raw]"}
@@ -1146,7 +1146,7 @@ only_toplevel="false"
 value="* ===============================================================
 * MONTE CARLO MISMATCH & PROCESS SIMULATION
 * Topology: Closed-Loop Unity-Gain Follower (x3)
-* PDK     : IHP SG13G2 (PSP103 via OSDI)
+* PDK     : IHP SG13CMOSL (PSP103 via OSDI)
 * ===============================================================
 
 * Critical IHP PDK parameter switches to activate statistical variations
@@ -1512,7 +1512,7 @@ value="tcleval(
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_mismatch
 .lib $::MODELS_NGSPICE/cornerMOSCAP.lib moscap_tt_stat
 )"
-      }
+      spice_ignore=true}
 C {simulator_commands.sym} -290 -1150 0 0 {name=Worst-Case_SS
 simulator=ngspice
 only_toplevel=false 
