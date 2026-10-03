@@ -230,10 +230,4 @@ __marimo__/
 # Tools
 .venv
 .ipynb_checkpoints
-
-docs/
 designs/libs/core_digital/dec2to4/backups/dec2to4_backup_2026-09-23_09h57m25_482.gds
-# RAW files
-result
-xschem/coarse_gain/tb/tb_cg_network/xschemrc
-xschem/coarse_gain/tb/tb_cg_network/xschemrc
