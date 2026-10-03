@@ -23,8 +23,6 @@ Switched logarithmic resistor ladder topology providing 16 gain configurations (
 | `XR3` | `rhigh` | 0.50 | 4.50 | 32 | net13 to net14 | Ladder segment between Tap S13 and S14 |
 | `XR2` | `rhigh` | 0.50 | 9.60 | 32 | net12 to net13 | Ladder segment between Tap S14 and S15 |
 
----
-
 ## 2. Digitally Controlled Transmission Gate Switches (`tgate`)
 Progressively tapered transmission gates routing the selected resistor tap back to the summing node (`net17` / virtual ground). All switches use $L = 0.13\,\mu\text{m}$:
 
